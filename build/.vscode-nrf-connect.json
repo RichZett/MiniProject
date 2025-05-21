@@ -1,0 +1,17 @@
+{
+  "toolchainPath": "/opt/nordic/ncs/toolchains/ef4fc6722e",
+  "sdkPath": "/opt/nordic/ncs/v2.6.0",
+  "board": "nrf52840dk_nrf52840",
+  "boardDir": "/opt/nordic/ncs/v2.6.0/zephyr/boards/arm/nrf52840dk_nrf52840",
+  "boardDirs": [
+    "/opt/nordic/ncs/v2.6.0/zephyr/boards/arm/nrf52840dk_nrf52840"
+  ],
+  "optimizations": "none",
+  "cmakeArgs": [],
+  "confFiles": [],
+  "buildDirectory": "build",
+  "kconfigFragments": [],
+  "snippets": [],
+  "dtcOverlays": [],
+  "extraDtcOverlays": []
+}
