@@ -161,6 +161,9 @@
 /Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/gpio/CMakeFiles/rebuild_cache.dir
 /Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/gpio/CMakeFiles/edit_cache.dir
 /Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/gpio/CMakeFiles/drivers__gpio.dir
+/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/i2c/CMakeFiles/rebuild_cache.dir
+/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/i2c/CMakeFiles/edit_cache.dir
+/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/i2c/CMakeFiles/drivers__i2c.dir
 /Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/pinctrl/CMakeFiles/rebuild_cache.dir
 /Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/pinctrl/CMakeFiles/edit_cache.dir
 /Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir

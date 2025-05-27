@@ -3,10 +3,11 @@
 #include <zephyr/devicetree.h>		/* for DT_NODELABEL() */
 #include <zephyr/drivers/gpio.h>    /* for GPIO api */
 #include <stdlib.h>  				/* for abs() */
+#include "rtdb.h"
 
 
 /* Define the polling time, in ms */
-#define SLEEP_TIME_MS 100 // Remove??
+#define SLEEP_TIME_MS 100 
 
 /* Get leds and buttons node IDs. Refer to the DTS file */
 #define LED0_NODE DT_ALIAS(led0)
@@ -29,6 +30,24 @@ static const struct gpio_dt_spec led_high 	= GPIO_DT_SPEC_GET(LED3_NODE, gpios);
 static const struct gpio_dt_spec but 	 = GPIO_DT_SPEC_GET(BUT0_NODE, gpios);
 static const struct gpio_dt_spec but_inc = GPIO_DT_SPEC_GET(BUT1_NODE, gpios);
 static const struct gpio_dt_spec but_dec = GPIO_DT_SPEC_GET(BUT2_NODE, gpios);
+
+/* Declaration */
+K_THREAD_STACK_DEFINE(button_stack, 512);
+struct k_thread button_thread_data;
+extern void button_task(void *, void *, void *);
+
+K_THREAD_STACK_DEFINE(led_stack, 512);
+struct k_thread led_thread_data;
+extern void led_task(void *, void *, void *);
+
+K_THREAD_STACK_DEFINE(temp_stack, 512);
+struct k_thread temp_thread_data;
+extern void temp_task(void *, void *, void *);
+
+
+
+
+
  
 /*
  * The main function
@@ -38,13 +57,9 @@ int main(void)
 	int ret =0;
 	
 	/* Check if devices are ready */
-	if (!device_is_ready(led.port) || !device_is_ready(but.port)) {
-		return 0;
-	}	
-	if (!device_is_ready(but_inc.port)) {
-		return 0;
-	}
-	if (!device_is_ready(but_dec.port)) {
+	const struct device *gpio0 = DEVICE_DT_GET(DT_NODELABEL(gpio0));
+	if (!device_is_ready(gpio0)) 
+	{
 		return 0;
 	}
 	
@@ -75,6 +90,7 @@ int main(void)
 	if (ret < 0) {
 		return 0;
 	}
+
 	ret = gpio_pin_configure_dt(&but_dec, GPIO_INPUT);
 	if (ret < 0) {
 		return 0;
@@ -83,67 +99,15 @@ int main(void)
 	/*
 	 * The main loop
 	 */
-	bool last_butStat = false;
-	bool last_butInc = false;
-	bool last_butDec = false;
 
-	bool system_on = false;
-	int set_temp = 25; 
-	int current_temp = 25;  // simulated temp
+	/* Create thread */
+	k_thread_create(&button_thread_data, button_stack, 512, button_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
+	k_thread_create(&led_thread_data, led_stack, 512, led_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
+	k_thread_create(&temp_thread_data, temp_stack, 512, temp_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
 
 
 	while(1) {
-		bool current_butStat = gpio_pin_get_dt(&but);
-		bool current_butInc = gpio_pin_get_dt(&but_inc);
-		bool current_butDec = gpio_pin_get_dt(&but_dec);
-
-
-		/* ON/OFF with button1(sw0) */
-		if (current_butStat && !last_butStat) {
-			system_on = !system_on;
-			printk("System toggled %s\n", system_on ? "ON" : "OFF");
-
-			// Set LED accordingly
-			gpio_pin_set_dt(&led, system_on ? 1 : 0); 
-
-			k_msleep(300); // debounce delay
-		}
-
-		/* Increase the set_temp with button2(sw1) */
-		if (current_butInc && !last_butInc)
-		{
-			set_temp++; 
-			printk("The set temp increased to %d\n", set_temp);
-			k_msleep(300); // debounce
-
-		}
-
-		/* Decrease the set_temp with button4(sw3)*/
-		if (current_butDec && !last_butDec) 
-		{
-		set_temp--;
-		printk("The set temp decreased to %d\n", set_temp);
-		k_msleep(300);
-		}
-
-		last_butInc = current_butInc;
-		last_butDec = current_butDec;
-		last_butStat = current_butStat;
-		
-		if (system_on) {
-			int diff = current_temp - set_temp;
-
-			gpio_pin_set_dt(&led_normal, (abs(diff) <= 2) ? 1 : 0);
-			gpio_pin_set_dt(&led_low,  (diff < -2) ? 1 : 0);
-			gpio_pin_set_dt(&led_high, (diff > 2) ? 1 : 0);
-		} else {
-			// All off if system is off
-			gpio_pin_set_dt(&led_normal, 0);
-			gpio_pin_set_dt(&led_low,  0);
-			gpio_pin_set_dt(&led_high, 0);
-		}
- 
-		k_msleep(SLEEP_TIME_MS); 
+		k_msleep(100);  // idle loop
 	}
 
 	return 0;

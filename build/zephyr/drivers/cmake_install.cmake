@@ -84,6 +84,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/i2c/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/drivers/pinctrl/cmake_install.cmake")
 endif()
 

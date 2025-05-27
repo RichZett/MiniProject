@@ -1192,4 +1192,16 @@ zephyr_udc0: &usbd {
  status = "okay";
 };
 # 0 "<command-line>" 2
+# 1 "/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/nrf52840dk_nrf52840.overlay" 1
+# 13 "/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/nrf52840dk_nrf52840.overlay"
+&i2c0 {
+    status = "okay";
+
+    tc74sensor: tc74@4d {
+        compatible = "microchip,tc74";
+        reg = <0x4d>;
+        label = "TC74";
+    };
+};
+# 0 "<command-line>" 2
 # 1 "/opt/nordic/ncs/v2.6.0/zephyr/misc/empty_file.c"

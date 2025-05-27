@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "basic_08_I2CDemo_DT",
+			"path": "../../../DemoMicrocontroller/NCSDemos_2_6_0/basic_08_I2CDemo_DT"
+		}
+	],
+	"settings": {
+		"nrf-connect.applications": [
+			"${workspaceFolder}"
+		]
+	}
+}

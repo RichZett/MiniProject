@@ -134,6 +134,11 @@
 			pinctrl-0 = < &i2c0_default >;
 			pinctrl-1 = < &i2c0_sleep >;
 			pinctrl-names = "default", "sleep";
+			tc74sensor: tc74@4d {
+				compatible = "microchip,tc74";
+				reg = < 0x4d >;
+				label = "TC74";
+			};
 		};
 		spi0: spi@40003000 {
 			compatible = "nordic,nrf-spi";
