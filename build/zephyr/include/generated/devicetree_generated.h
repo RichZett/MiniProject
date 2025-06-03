@@ -1330,6 +1330,7 @@
 
 /* Existence and alternate IDs: */
 #define DT_N_S_soc_S_gpio_50000000_EXISTS 1
+#define DT_N_ALIAS_heater           DT_N_S_soc_S_gpio_50000000
 #define DT_N_INST_0_nordic_nrf_gpio DT_N_S_soc_S_gpio_50000000
 #define DT_N_NODELABEL_gpio0        DT_N_S_soc_S_gpio_50000000
 

@@ -13,6 +13,7 @@ set_target_properties(devicetree_target PROPERTIES "DT_CHOSEN|zephyr,code-partit
 set_target_properties(devicetree_target PROPERTIES "DT_CHOSEN|zephyr,ieee802154" "/soc/radio@40001000/ieee802154")
 set_target_properties(devicetree_target PROPERTIES "DT_ALIAS|watchdog0" "/soc/watchdog@40010000")
 set_target_properties(devicetree_target PROPERTIES "DT_ALIAS|spi-flash0" "/soc/qspi@40029000/mx25r6435f@0")
+set_target_properties(devicetree_target PROPERTIES "DT_ALIAS|heater" "/soc/gpio@50000000")
 set_target_properties(devicetree_target PROPERTIES "DT_ALIAS|led0" "/leds/led_0")
 set_target_properties(devicetree_target PROPERTIES "DT_ALIAS|bootloader-led0" "/leds/led_0")
 set_target_properties(devicetree_target PROPERTIES "DT_ALIAS|mcuboot-led0" "/leds/led_0")

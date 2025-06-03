@@ -19,3 +19,10 @@
         label = "TC74";
     };
 };
+
+/ {
+    aliases {
+        heater = &gpio0;
+    };
+};
+

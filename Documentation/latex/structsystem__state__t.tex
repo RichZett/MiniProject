@@ -1,0 +1,49 @@
+\doxysection{system\+\_\+state\+\_\+t Struct Reference}
+\hypertarget{structsystem__state__t}{}\label{structsystem__state__t}\index{system\_state\_t@{system\_state\_t}}
+
+
+Representation of the current state of the system. The struct is used to share and store key variables for the state between different parts of the system.  
+
+
+
+
+{\ttfamily \#include $<$rtdb.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structsystem__state__t_a58df905c16a23f5bc226da45137982da}{system\+\_\+on}}
+\item 
+int \mbox{\hyperlink{structsystem__state__t_a663b941cb9307762e08abd6209c4f7df}{set\+\_\+temp}}
+\item 
+int \mbox{\hyperlink{structsystem__state__t_ab7497aab1b644e8e6e040371a68e8374}{current\+\_\+temp}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representation of the current state of the system. The struct is used to share and store key variables for the state between different parts of the system. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{structsystem__state__t_ab7497aab1b644e8e6e040371a68e8374}\index{system\_state\_t@{system\_state\_t}!current\_temp@{current\_temp}}
+\index{current\_temp@{current\_temp}!system\_state\_t@{system\_state\_t}}
+\doxysubsubsection{\texorpdfstring{current\_temp}{current\_temp}}
+{\footnotesize\ttfamily \label{structsystem__state__t_ab7497aab1b644e8e6e040371a68e8374} 
+int system\+\_\+state\+\_\+t\+::current\+\_\+temp}
+
+The current measured temperature. \Hypertarget{structsystem__state__t_a663b941cb9307762e08abd6209c4f7df}\index{system\_state\_t@{system\_state\_t}!set\_temp@{set\_temp}}
+\index{set\_temp@{set\_temp}!system\_state\_t@{system\_state\_t}}
+\doxysubsubsection{\texorpdfstring{set\_temp}{set\_temp}}
+{\footnotesize\ttfamily \label{structsystem__state__t_a663b941cb9307762e08abd6209c4f7df} 
+int system\+\_\+state\+\_\+t\+::set\+\_\+temp}
+
+The set temperature that is wanted. \Hypertarget{structsystem__state__t_a58df905c16a23f5bc226da45137982da}\index{system\_state\_t@{system\_state\_t}!system\_on@{system\_on}}
+\index{system\_on@{system\_on}!system\_state\_t@{system\_state\_t}}
+\doxysubsubsection{\texorpdfstring{system\_on}{system\_on}}
+{\footnotesize\ttfamily \label{structsystem__state__t_a58df905c16a23f5bc226da45137982da} 
+bool system\+\_\+state\+\_\+t\+::system\+\_\+on}
+
+Indicates if system is on/off. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{rtdb_8h}{rtdb.\+h}}\end{DoxyCompactItemize}

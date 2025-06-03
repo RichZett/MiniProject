@@ -10,5 +10,7 @@ target_sources(app PRIVATE
   src/led_task.c
   src/temp_task.c
   src/rtdb.c
+  src/heater_task.c
+
 )
 

@@ -44,6 +44,10 @@ K_THREAD_STACK_DEFINE(temp_stack, 512);
 struct k_thread temp_thread_data;
 extern void temp_task(void *, void *, void *);
 
+K_THREAD_STACK_DEFINE(heater_stack, 512);
+struct k_thread heater_thread_data;
+extern void heater_task(void *, void *, void *);
+
 
 
 
@@ -104,6 +108,8 @@ int main(void)
 	k_thread_create(&button_thread_data, button_stack, 512, button_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
 	k_thread_create(&led_thread_data, led_stack, 512, led_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
 	k_thread_create(&temp_thread_data, temp_stack, 512, temp_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
+	k_thread_create(&heater_thread_data, heater_stack, 512, heater_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
+
 
 
 	while(1) {

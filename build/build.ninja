@@ -96,6 +96,14 @@ build CMakeFiles/app.dir/src/rtdb.c.obj: C_COMPILER__app_ /Users/richardzetterma
   OBJECT_DIR = CMakeFiles/app.dir
   OBJECT_FILE_DIR = CMakeFiles/app.dir/src
 
+build CMakeFiles/app.dir/src/heater_task.c.obj: C_COMPILER__app_ /Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/src/heater_task.c || cmake_object_order_depends_target_app
+  DEFINES = -DKERNEL -DNRF52840_XXAA -DPICOLIBC_LONG_LONG_PRINTF_SCANF -D_FORTIFY_SOURCE=1 -D_POSIX_C_SOURCE=200809 -D__LINUX_ERRNO_EXTENSIONS__ -D__PROGRAM_START -D__ZEPHYR__=1
+  DEP_FILE = CMakeFiles/app.dir/src/heater_task.c.obj.d
+  FLAGS = -fno-strict-aliasing -Os -imacros /Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/include/generated/autoconf.h -fno-printf-return-value -fno-common -g -gdwarf-4 -fdiagnostics-color=always -mcpu=cortex-m4 -mthumb -mabi=aapcs -mfp16-format=ieee -mtp=soft --sysroot=/opt/nordic/ncs/toolchains/ef4fc6722e/opt/zephyr-sdk/arm-zephyr-eabi/arm-zephyr-eabi -imacros /opt/nordic/ncs/v2.6.0/zephyr/include/zephyr/toolchain/zephyr_stdint.h -Wall -Wformat -Wformat-security -Wno-format-zero-length -Wno-pointer-sign -Wpointer-arith -Wexpansion-to-defined -Wno-unused-but-set-variable -Werror=implicit-int -fno-pic -fno-pie -fno-asynchronous-unwind-tables -ftls-model=local-exec -fno-reorder-functions --param=min-pagesize=0 -fno-defer-pop -fmacro-prefix-map=/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject=CMAKE_SOURCE_DIR -fmacro-prefix-map=/opt/nordic/ncs/v2.6.0/zephyr=ZEPHYR_BASE -fmacro-prefix-map=/opt/nordic/ncs/v2.6.0=WEST_TOPDIR -ffunction-sections -fdata-sections --specs=picolibc.specs -std=c99
+  INCLUDES = -I/opt/nordic/ncs/v2.6.0/zephyr/include -I/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/build/zephyr/include/generated -I/opt/nordic/ncs/v2.6.0/zephyr/soc/arm/nordic_nrf/nrf52 -I/opt/nordic/ncs/v2.6.0/zephyr/soc/common/nordic_nrf/. -I/opt/nordic/ncs/v2.6.0/zephyr/soc/arm/nordic_nrf/common/. -I/opt/nordic/ncs/v2.6.0/nrf/include -I/opt/nordic/ncs/v2.6.0/nrf/tests/include -I/opt/nordic/ncs/v2.6.0/modules/hal/cmsis/CMSIS/Core/Include -I/opt/nordic/ncs/v2.6.0/zephyr/modules/cmsis/. -I/opt/nordic/ncs/v2.6.0/modules/hal/nordic/nrfx -I/opt/nordic/ncs/v2.6.0/modules/hal/nordic/nrfx/drivers/include -I/opt/nordic/ncs/v2.6.0/modules/hal/nordic/nrfx/mdk -I/opt/nordic/ncs/v2.6.0/zephyr/modules/hal_nordic/nrfx/. -I/opt/nordic/ncs/v2.6.0/modules/debug/segger/SEGGER -I/opt/nordic/ncs/v2.6.0/modules/debug/segger/Config -isystem /opt/nordic/ncs/v2.6.0/zephyr/lib/libc/common/include -isystem /opt/nordic/ncs/v2.6.0/nrfxlib/crypto/nrf_cc310_platform/include
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/src
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target app
@@ -104,7 +112,7 @@ build CMakeFiles/app.dir/src/rtdb.c.obj: C_COMPILER__app_ /Users/richardzetterma
 #############################################
 # Link the static library app/libapp.a
 
-build app/libapp.a: C_STATIC_LIBRARY_LINKER__app_ CMakeFiles/app.dir/src/main.c.obj CMakeFiles/app.dir/src/button_task.c.obj CMakeFiles/app.dir/src/led_task.c.obj CMakeFiles/app.dir/src/temp_task.c.obj CMakeFiles/app.dir/src/rtdb.c.obj || zephyr/driver_validation_h_target zephyr/kobj_types_h_target zephyr/syscall_list_h_target zephyr/zephyr_generated_headers
+build app/libapp.a: C_STATIC_LIBRARY_LINKER__app_ CMakeFiles/app.dir/src/main.c.obj CMakeFiles/app.dir/src/button_task.c.obj CMakeFiles/app.dir/src/led_task.c.obj CMakeFiles/app.dir/src/temp_task.c.obj CMakeFiles/app.dir/src/rtdb.c.obj CMakeFiles/app.dir/src/heater_task.c.obj || zephyr/driver_validation_h_target zephyr/kobj_types_h_target zephyr/syscall_list_h_target zephyr/zephyr_generated_headers
   OBJECT_DIR = CMakeFiles/app.dir
   POST_BUILD = :
   PRE_LINK = :

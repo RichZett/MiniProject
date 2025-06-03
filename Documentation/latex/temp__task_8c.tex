@@ -1,0 +1,43 @@
+\doxysection{src/temp\+\_\+task.c File Reference}
+\hypertarget{temp__task_8c}{}\label{temp__task_8c}\index{src/temp\_task.c@{src/temp\_task.c}}
+{\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
+{\ttfamily \#include $<$zephyr/drivers/i2c.\+h$>$}\newline
+{\ttfamily \#include $<$zephyr/devicetree.\+h$>$}\newline
+{\ttfamily \#include $<$zephyr/sys/printk.\+h$>$}\newline
+{\ttfamily \#include "{}rtdb.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{temp__task_8c_a7d19703980564150c36c41945853212d}{TC74\+\_\+\+NODE}}~DT\+\_\+\+NODELABEL(tc74sensor)
+\item 
+\#define \mbox{\hyperlink{temp__task_8c_a79aaa89920d05217559f07e3602af050}{TC74\+\_\+\+CMD\+\_\+\+RTR}}~0x00
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{temp__task_8c_a2d0bfca3786444f0de03b1470d12387d}{temp\+\_\+task}} (void \texorpdfstring{$\ast$}{*}a, void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}c)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{temp__task_8c_a79aaa89920d05217559f07e3602af050}\index{temp\_task.c@{temp\_task.c}!TC74\_CMD\_RTR@{TC74\_CMD\_RTR}}
+\index{TC74\_CMD\_RTR@{TC74\_CMD\_RTR}!temp\_task.c@{temp\_task.c}}
+\doxysubsubsection{\texorpdfstring{TC74\_CMD\_RTR}{TC74\_CMD\_RTR}}
+{\footnotesize\ttfamily \label{temp__task_8c_a79aaa89920d05217559f07e3602af050} 
+\#define TC74\+\_\+\+CMD\+\_\+\+RTR~0x00}
+
+\Hypertarget{temp__task_8c_a7d19703980564150c36c41945853212d}\index{temp\_task.c@{temp\_task.c}!TC74\_NODE@{TC74\_NODE}}
+\index{TC74\_NODE@{TC74\_NODE}!temp\_task.c@{temp\_task.c}}
+\doxysubsubsection{\texorpdfstring{TC74\_NODE}{TC74\_NODE}}
+{\footnotesize\ttfamily \label{temp__task_8c_a7d19703980564150c36c41945853212d} 
+\#define TC74\+\_\+\+NODE~DT\+\_\+\+NODELABEL(tc74sensor)}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{temp__task_8c_a2d0bfca3786444f0de03b1470d12387d}\index{temp\_task.c@{temp\_task.c}!temp\_task@{temp\_task}}
+\index{temp\_task@{temp\_task}!temp\_task.c@{temp\_task.c}}
+\doxysubsubsection{\texorpdfstring{temp\_task()}{temp\_task()}}
+{\footnotesize\ttfamily \label{temp__task_8c_a2d0bfca3786444f0de03b1470d12387d} 
+void temp\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})}
+

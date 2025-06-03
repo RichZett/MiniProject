@@ -33,6 +33,7 @@
 		mcuboot-led0 = &led0;
 		watchdog0 = &wdt0;
 		spi-flash0 = &mx25r64;
+		heater = &gpio0;
 	};
 	soc {
 		#address-cells = < 0x1 >;

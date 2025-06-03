@@ -1,0 +1,48 @@
+\doxysection{src/rtdb.h File Reference}
+\hypertarget{rtdb_8h}{}\label{rtdb_8h}\index{src/rtdb.h@{src/rtdb.h}}
+
+
+The Real-\/\+Time Database (RTDB) interface for the shared system.  
+
+
+{\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsystem__state__t}{system\+\_\+state\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Representation of the current state of the system. The struct is used to share and store key variables for the state between different parts of the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsystem__state__t}{system\+\_\+state\+\_\+t}} \mbox{\hyperlink{rtdb_8h_af724bb60271bf2baa88e28d85a9822ae}{rtdb}}
+\begin{DoxyCompactList}\small\item\em Variable that holds the current state of the system. Can be accessed in a thread safe manner. \end{DoxyCompactList}\item 
+struct k\+\_\+mutex \mbox{\hyperlink{rtdb_8h_a026dd5c4501eb8bdbfab529720f60080}{rtdb\+\_\+mutex}}
+\begin{DoxyCompactList}\small\item\em Mutex for synchronizing access to the system state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Real-\/\+Time Database (RTDB) interface for the shared system. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{rtdb_8h_af724bb60271bf2baa88e28d85a9822ae}\index{rtdb.h@{rtdb.h}!rtdb@{rtdb}}
+\index{rtdb@{rtdb}!rtdb.h@{rtdb.h}}
+\doxysubsubsection{\texorpdfstring{rtdb}{rtdb}}
+{\footnotesize\ttfamily \label{rtdb_8h_af724bb60271bf2baa88e28d85a9822ae} 
+struct \mbox{\hyperlink{structsystem__state__t}{system\+\_\+state\+\_\+t}} rtdb\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Variable that holds the current state of the system. Can be accessed in a thread safe manner. 
+
+\Hypertarget{rtdb_8h_a026dd5c4501eb8bdbfab529720f60080}\index{rtdb.h@{rtdb.h}!rtdb\_mutex@{rtdb\_mutex}}
+\index{rtdb\_mutex@{rtdb\_mutex}!rtdb.h@{rtdb.h}}
+\doxysubsubsection{\texorpdfstring{rtdb\_mutex}{rtdb\_mutex}}
+{\footnotesize\ttfamily \label{rtdb_8h_a026dd5c4501eb8bdbfab529720f60080} 
+struct k\+\_\+mutex rtdb\+\_\+mutex\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Mutex for synchronizing access to the system state. 
+

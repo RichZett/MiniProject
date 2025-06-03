@@ -1,0 +1,59 @@
+\doxysection{src/led\+\_\+task.c File Reference}
+\hypertarget{led__task_8c}{}\label{led__task_8c}\index{src/led\_task.c@{src/led\_task.c}}
+{\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
+{\ttfamily \#include $<$zephyr/drivers/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$zephyr/devicetree.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}rtdb.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{led__task_8c_a661852bec8ab9683d43ad02881c2f2b5}{LED0\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led0)    /\texorpdfstring{$\ast$}{*} ON/OFF \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{led__task_8c_ac8b7bbb65d5065e43a35775d9fc3e322}{LED1\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led1)    /\texorpdfstring{$\ast$}{*} Normal range \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{led__task_8c_a9014b2cb02041c926b50b6411232ee82}{LED2\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led2)    /\texorpdfstring{$\ast$}{*} Too low \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{led__task_8c_ad5246f73682d98292ef7d7b038582700}{LED3\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led3)    /\texorpdfstring{$\ast$}{*} Too high \texorpdfstring{$\ast$}{*}/
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{led__task_8c_a8ee90e672bf1005d9c6844f8aa898eae}{led\+\_\+task}} (void \texorpdfstring{$\ast$}{*}a, void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}c)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{led__task_8c_a661852bec8ab9683d43ad02881c2f2b5}\index{led\_task.c@{led\_task.c}!LED0\_NODE@{LED0\_NODE}}
+\index{LED0\_NODE@{LED0\_NODE}!led\_task.c@{led\_task.c}}
+\doxysubsubsection{\texorpdfstring{LED0\_NODE}{LED0\_NODE}}
+{\footnotesize\ttfamily \label{led__task_8c_a661852bec8ab9683d43ad02881c2f2b5} 
+\#define LED0\+\_\+\+NODE~DT\+\_\+\+ALIAS(led0)    /\texorpdfstring{$\ast$}{*} ON/OFF \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{led__task_8c_ac8b7bbb65d5065e43a35775d9fc3e322}\index{led\_task.c@{led\_task.c}!LED1\_NODE@{LED1\_NODE}}
+\index{LED1\_NODE@{LED1\_NODE}!led\_task.c@{led\_task.c}}
+\doxysubsubsection{\texorpdfstring{LED1\_NODE}{LED1\_NODE}}
+{\footnotesize\ttfamily \label{led__task_8c_ac8b7bbb65d5065e43a35775d9fc3e322} 
+\#define LED1\+\_\+\+NODE~DT\+\_\+\+ALIAS(led1)    /\texorpdfstring{$\ast$}{*} Normal range \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{led__task_8c_a9014b2cb02041c926b50b6411232ee82}\index{led\_task.c@{led\_task.c}!LED2\_NODE@{LED2\_NODE}}
+\index{LED2\_NODE@{LED2\_NODE}!led\_task.c@{led\_task.c}}
+\doxysubsubsection{\texorpdfstring{LED2\_NODE}{LED2\_NODE}}
+{\footnotesize\ttfamily \label{led__task_8c_a9014b2cb02041c926b50b6411232ee82} 
+\#define LED2\+\_\+\+NODE~DT\+\_\+\+ALIAS(led2)    /\texorpdfstring{$\ast$}{*} Too low \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{led__task_8c_ad5246f73682d98292ef7d7b038582700}\index{led\_task.c@{led\_task.c}!LED3\_NODE@{LED3\_NODE}}
+\index{LED3\_NODE@{LED3\_NODE}!led\_task.c@{led\_task.c}}
+\doxysubsubsection{\texorpdfstring{LED3\_NODE}{LED3\_NODE}}
+{\footnotesize\ttfamily \label{led__task_8c_ad5246f73682d98292ef7d7b038582700} 
+\#define LED3\+\_\+\+NODE~DT\+\_\+\+ALIAS(led3)    /\texorpdfstring{$\ast$}{*} Too high \texorpdfstring{$\ast$}{*}/}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{led__task_8c_a8ee90e672bf1005d9c6844f8aa898eae}\index{led\_task.c@{led\_task.c}!led\_task@{led\_task}}
+\index{led\_task@{led\_task}!led\_task.c@{led\_task.c}}
+\doxysubsubsection{\texorpdfstring{led\_task()}{led\_task()}}
+{\footnotesize\ttfamily \label{led__task_8c_a8ee90e672bf1005d9c6844f8aa898eae} 
+void led\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})}
+

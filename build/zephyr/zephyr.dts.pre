@@ -1203,5 +1203,11 @@ zephyr_udc0: &usbd {
         label = "TC74";
     };
 };
+
+/ {
+    aliases {
+        heater = &gpio0;
+    };
+};
 # 0 "<command-line>" 2
 # 1 "/opt/nordic/ncs/v2.6.0/zephyr/misc/empty_file.c"

@@ -1,0 +1,194 @@
+\doxysection{src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{src/main.c@{src/main.c}}
+{\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
+{\ttfamily \#include $<$zephyr/device.\+h$>$}\newline
+{\ttfamily \#include $<$zephyr/devicetree.\+h$>$}\newline
+{\ttfamily \#include $<$zephyr/drivers/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}rtdb.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a840217aee9bd887463dad1b56defb051}{SLEEP\+\_\+\+TIME\+\_\+\+MS}}~100
+\item 
+\#define \mbox{\hyperlink{main_8c_a661852bec8ab9683d43ad02881c2f2b5}{LED0\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led0)
+\item 
+\#define \mbox{\hyperlink{main_8c_ac8b7bbb65d5065e43a35775d9fc3e322}{LED1\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led1)
+\item 
+\#define \mbox{\hyperlink{main_8c_a9014b2cb02041c926b50b6411232ee82}{LED2\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led2)
+\item 
+\#define \mbox{\hyperlink{main_8c_ad5246f73682d98292ef7d7b038582700}{LED3\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led3)
+\item 
+\#define \mbox{\hyperlink{main_8c_aae95411f1701c6da6aee1d9cfd974513}{BUT0\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw0)
+\item 
+\#define \mbox{\hyperlink{main_8c_ad4ede373699c5e72c9bfb39773deb391}{BUT1\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw1)
+\item 
+\#define \mbox{\hyperlink{main_8c_a8c2121bb4a318cb9ed0a125e0400fe49}{BUT2\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw3)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8c_a468eba317e8c2e55b8ac3c0cc6d0b908}{K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE}} (button\+\_\+stack, 512)
+\item 
+void \mbox{\hyperlink{main_8c_af099339d864d921d7d0f35ae14377822}{button\+\_\+task}} (void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
+\item 
+\mbox{\hyperlink{main_8c_ab1e485170e5065d92b3a035f9c3f80e4}{K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE}} (led\+\_\+stack, 512)
+\item 
+void \mbox{\hyperlink{main_8c_a7b3e4b46191b348e298c3fc3e26a834e}{led\+\_\+task}} (void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
+\item 
+\mbox{\hyperlink{main_8c_a161e14e6b6a42db24cf342e66a52e68b}{K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE}} (temp\+\_\+stack, 512)
+\item 
+void \mbox{\hyperlink{main_8c_a541d60d50f0b544ba57ae5dab7653303}{temp\+\_\+task}} (void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
+\item 
+\mbox{\hyperlink{main_8c_aae672bada06ee09c96094ff54327c423}{K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE}} (heater\+\_\+stack, 512)
+\item 
+void \mbox{\hyperlink{main_8c_a0fc9012e626c07e880b68c610a4b216d}{heater\+\_\+task}} (void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct k\+\_\+thread \mbox{\hyperlink{main_8c_a8a4cd34caeeb9f044b19eaaaf699095d}{button\+\_\+thread\+\_\+data}}
+\item 
+struct k\+\_\+thread \mbox{\hyperlink{main_8c_afe6175ba49c19e51c17c00525c9fb449}{led\+\_\+thread\+\_\+data}}
+\item 
+struct k\+\_\+thread \mbox{\hyperlink{main_8c_a6e0d5f67f191d682fc6fb5c929964220}{temp\+\_\+thread\+\_\+data}}
+\item 
+struct k\+\_\+thread \mbox{\hyperlink{main_8c_afa7ec3eab307a2c6c065a819a83f8d93}{heater\+\_\+thread\+\_\+data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8c_aae95411f1701c6da6aee1d9cfd974513}\index{main.c@{main.c}!BUT0\_NODE@{BUT0\_NODE}}
+\index{BUT0\_NODE@{BUT0\_NODE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{BUT0\_NODE}{BUT0\_NODE}}
+{\footnotesize\ttfamily \label{main_8c_aae95411f1701c6da6aee1d9cfd974513} 
+\#define BUT0\+\_\+\+NODE~DT\+\_\+\+ALIAS(sw0)}
+
+\Hypertarget{main_8c_ad4ede373699c5e72c9bfb39773deb391}\index{main.c@{main.c}!BUT1\_NODE@{BUT1\_NODE}}
+\index{BUT1\_NODE@{BUT1\_NODE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{BUT1\_NODE}{BUT1\_NODE}}
+{\footnotesize\ttfamily \label{main_8c_ad4ede373699c5e72c9bfb39773deb391} 
+\#define BUT1\+\_\+\+NODE~DT\+\_\+\+ALIAS(sw1)}
+
+\Hypertarget{main_8c_a8c2121bb4a318cb9ed0a125e0400fe49}\index{main.c@{main.c}!BUT2\_NODE@{BUT2\_NODE}}
+\index{BUT2\_NODE@{BUT2\_NODE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{BUT2\_NODE}{BUT2\_NODE}}
+{\footnotesize\ttfamily \label{main_8c_a8c2121bb4a318cb9ed0a125e0400fe49} 
+\#define BUT2\+\_\+\+NODE~DT\+\_\+\+ALIAS(sw3)}
+
+\Hypertarget{main_8c_a661852bec8ab9683d43ad02881c2f2b5}\index{main.c@{main.c}!LED0\_NODE@{LED0\_NODE}}
+\index{LED0\_NODE@{LED0\_NODE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{LED0\_NODE}{LED0\_NODE}}
+{\footnotesize\ttfamily \label{main_8c_a661852bec8ab9683d43ad02881c2f2b5} 
+\#define LED0\+\_\+\+NODE~DT\+\_\+\+ALIAS(led0)}
+
+\Hypertarget{main_8c_ac8b7bbb65d5065e43a35775d9fc3e322}\index{main.c@{main.c}!LED1\_NODE@{LED1\_NODE}}
+\index{LED1\_NODE@{LED1\_NODE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{LED1\_NODE}{LED1\_NODE}}
+{\footnotesize\ttfamily \label{main_8c_ac8b7bbb65d5065e43a35775d9fc3e322} 
+\#define LED1\+\_\+\+NODE~DT\+\_\+\+ALIAS(led1)}
+
+\Hypertarget{main_8c_a9014b2cb02041c926b50b6411232ee82}\index{main.c@{main.c}!LED2\_NODE@{LED2\_NODE}}
+\index{LED2\_NODE@{LED2\_NODE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{LED2\_NODE}{LED2\_NODE}}
+{\footnotesize\ttfamily \label{main_8c_a9014b2cb02041c926b50b6411232ee82} 
+\#define LED2\+\_\+\+NODE~DT\+\_\+\+ALIAS(led2)}
+
+\Hypertarget{main_8c_ad5246f73682d98292ef7d7b038582700}\index{main.c@{main.c}!LED3\_NODE@{LED3\_NODE}}
+\index{LED3\_NODE@{LED3\_NODE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{LED3\_NODE}{LED3\_NODE}}
+{\footnotesize\ttfamily \label{main_8c_ad5246f73682d98292ef7d7b038582700} 
+\#define LED3\+\_\+\+NODE~DT\+\_\+\+ALIAS(led3)}
+
+\Hypertarget{main_8c_a840217aee9bd887463dad1b56defb051}\index{main.c@{main.c}!SLEEP\_TIME\_MS@{SLEEP\_TIME\_MS}}
+\index{SLEEP\_TIME\_MS@{SLEEP\_TIME\_MS}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SLEEP\_TIME\_MS}{SLEEP\_TIME\_MS}}
+{\footnotesize\ttfamily \label{main_8c_a840217aee9bd887463dad1b56defb051} 
+\#define SLEEP\+\_\+\+TIME\+\_\+\+MS~100}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_af099339d864d921d7d0f35ae14377822}\index{main.c@{main.c}!button\_task@{button\_task}}
+\index{button\_task@{button\_task}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{button\_task()}{button\_task()}}
+{\footnotesize\ttfamily \label{main_8c_af099339d864d921d7d0f35ae14377822} 
+void button\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_a0fc9012e626c07e880b68c610a4b216d}\index{main.c@{main.c}!heater\_task@{heater\_task}}
+\index{heater\_task@{heater\_task}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{heater\_task()}{heater\_task()}}
+{\footnotesize\ttfamily \label{main_8c_a0fc9012e626c07e880b68c610a4b216d} 
+void heater\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_a468eba317e8c2e55b8ac3c0cc6d0b908}\index{main.c@{main.c}!K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}}
+\index{K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{K\_THREAD\_STACK\_DEFINE()}{K\_THREAD\_STACK\_DEFINE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{main_8c_a468eba317e8c2e55b8ac3c0cc6d0b908} 
+K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{button\+\_\+stack}]{}{, }\item[{512}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_aae672bada06ee09c96094ff54327c423}\index{main.c@{main.c}!K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}}
+\index{K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{K\_THREAD\_STACK\_DEFINE()}{K\_THREAD\_STACK\_DEFINE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{main_8c_aae672bada06ee09c96094ff54327c423} 
+K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{heater\+\_\+stack}]{}{, }\item[{512}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_ab1e485170e5065d92b3a035f9c3f80e4}\index{main.c@{main.c}!K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}}
+\index{K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{K\_THREAD\_STACK\_DEFINE()}{K\_THREAD\_STACK\_DEFINE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{main_8c_ab1e485170e5065d92b3a035f9c3f80e4} 
+K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{led\+\_\+stack}]{}{, }\item[{512}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_a161e14e6b6a42db24cf342e66a52e68b}\index{main.c@{main.c}!K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}}
+\index{K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{K\_THREAD\_STACK\_DEFINE()}{K\_THREAD\_STACK\_DEFINE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{main_8c_a161e14e6b6a42db24cf342e66a52e68b} 
+K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{temp\+\_\+stack}]{}{, }\item[{512}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_a7b3e4b46191b348e298c3fc3e26a834e}\index{main.c@{main.c}!led\_task@{led\_task}}
+\index{led\_task@{led\_task}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{led\_task()}{led\_task()}}
+{\footnotesize\ttfamily \label{main_8c_a7b3e4b46191b348e298c3fc3e26a834e} 
+void led\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_a541d60d50f0b544ba57ae5dab7653303}\index{main.c@{main.c}!temp\_task@{temp\_task}}
+\index{temp\_task@{temp\_task}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{temp\_task()}{temp\_task()}}
+{\footnotesize\ttfamily \label{main_8c_a541d60d50f0b544ba57ae5dab7653303} 
+void temp\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_a8a4cd34caeeb9f044b19eaaaf699095d}\index{main.c@{main.c}!button\_thread\_data@{button\_thread\_data}}
+\index{button\_thread\_data@{button\_thread\_data}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{button\_thread\_data}{button\_thread\_data}}
+{\footnotesize\ttfamily \label{main_8c_a8a4cd34caeeb9f044b19eaaaf699095d} 
+struct k\+\_\+thread button\+\_\+thread\+\_\+data}
+
+\Hypertarget{main_8c_afa7ec3eab307a2c6c065a819a83f8d93}\index{main.c@{main.c}!heater\_thread\_data@{heater\_thread\_data}}
+\index{heater\_thread\_data@{heater\_thread\_data}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{heater\_thread\_data}{heater\_thread\_data}}
+{\footnotesize\ttfamily \label{main_8c_afa7ec3eab307a2c6c065a819a83f8d93} 
+struct k\+\_\+thread heater\+\_\+thread\+\_\+data}
+
+\Hypertarget{main_8c_afe6175ba49c19e51c17c00525c9fb449}\index{main.c@{main.c}!led\_thread\_data@{led\_thread\_data}}
+\index{led\_thread\_data@{led\_thread\_data}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{led\_thread\_data}{led\_thread\_data}}
+{\footnotesize\ttfamily \label{main_8c_afe6175ba49c19e51c17c00525c9fb449} 
+struct k\+\_\+thread led\+\_\+thread\+\_\+data}
+
+\Hypertarget{main_8c_a6e0d5f67f191d682fc6fb5c929964220}\index{main.c@{main.c}!temp\_thread\_data@{temp\_thread\_data}}
+\index{temp\_thread\_data@{temp\_thread\_data}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{temp\_thread\_data}{temp\_thread\_data}}
+{\footnotesize\ttfamily \label{main_8c_a6e0d5f67f191d682fc6fb5c929964220} 
+struct k\+\_\+thread temp\+\_\+thread\+\_\+data}
+
