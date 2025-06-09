@@ -1193,7 +1193,6 @@ zephyr_udc0: &usbd {
 };
 # 0 "<command-line>" 2
 # 1 "/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/nrf52840dk_nrf52840.overlay" 1
-# 13 "/Users/richardzetterman/Documents/RealTime/Assignment3/MiniProject/nrf52840dk_nrf52840.overlay"
 &i2c0 {
     status = "okay";
 
@@ -1205,8 +1204,17 @@ zephyr_udc0: &usbd {
 };
 
 / {
+    leds {
+        compatible = "gpio-leds";
+
+        output_pin: my_output_pin {
+            gpios = <&gpio0 11 (0 << 0)>;
+            label = "Output pin";
+        };
+    };
+
     aliases {
-        heater = &gpio0;
+        outputpin = &output_pin;
     };
 };
 # 0 "<command-line>" 2

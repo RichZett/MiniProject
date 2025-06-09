@@ -109,6 +109,9 @@ $(function(){initNavTree('temp__task_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">temp_task.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Temperature sensing task using a TC74 I2C temperature sensor.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;zephyr/kernel.h&gt;</code><br />
 <code>#include &lt;zephyr/drivers/i2c.h&gt;</code><br />
 <code>#include &lt;zephyr/devicetree.h&gt;</code><br />
@@ -118,16 +121,22 @@ $(function(){initNavTree('temp__task_8c.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a7d19703980564150c36c41945853212d" id="r_a7d19703980564150c36c41945853212d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d19703980564150c36c41945853212d">TC74_NODE</a>&#160;&#160;&#160;DT_NODELABEL(tc74sensor)</td></tr>
+<tr class="memdesc:a7d19703980564150c36c41945853212d"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeviceTree node label for the TC74 temperature sensor.  <br /></td></tr>
 <tr class="separator:a7d19703980564150c36c41945853212d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79aaa89920d05217559f07e3602af050" id="r_a79aaa89920d05217559f07e3602af050"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79aaa89920d05217559f07e3602af050">TC74_CMD_RTR</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="memdesc:a79aaa89920d05217559f07e3602af050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command to read the temperature register from the TC74 sensor.  <br /></td></tr>
 <tr class="separator:a79aaa89920d05217559f07e3602af050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a2d0bfca3786444f0de03b1470d12387d" id="r_a2d0bfca3786444f0de03b1470d12387d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d0bfca3786444f0de03b1470d12387d">temp_task</a> (void *a, void *b, void *c)</td></tr>
+<tr class="memdesc:a2d0bfca3786444f0de03b1470d12387d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task reads TC74 sensor to get the temperature and updates RTDB.  <br /></td></tr>
 <tr class="separator:a2d0bfca3786444f0de03b1470d12387d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Temperature sensing task using a TC74 I2C temperature sensor. </p>
+<p>This task periodically reads the temperature from a TC74 sensor over I2C and updates the shared system state in the RTDB (Real-Time Database). </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a79aaa89920d05217559f07e3602af050" name="a79aaa89920d05217559f07e3602af050"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79aaa89920d05217559f07e3602af050">&#9670;&#160;</a></span>TC74_CMD_RTR</h2>
 
@@ -139,6 +148,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Command to read the temperature register from the TC74 sensor. </p>
 
 </div>
 </div>
@@ -153,6 +164,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>DeviceTree node label for the TC74 temperature sensor. </p>
 
 </div>
 </div>
@@ -180,6 +193,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Task reads TC74 sensor to get the temperature and updates RTDB. </p>
+<p>This task connects the I2C interface to the TC74 sensor. When the bus is ready, it reads the current temperature every second.</p>
+<p>Prints an error message if the I2C reading fails.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Unused </td></tr>
+    <tr><td class="paramname">b</td><td>Unused </td></tr>
+    <tr><td class="paramname">c</td><td>Unused </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

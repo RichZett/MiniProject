@@ -1,15 +1,41 @@
-
+/**
+ * @file temp_task.c
+ * @brief Temperature sensing task using a TC74 I2C temperature sensor.
+ *
+ * This task periodically reads the temperature from a TC74 sensor over I2C
+ * and updates the shared system state in the RTDB (Real-Time Database).
+ */
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/sys/printk.h>
 #include "rtdb.h"
 
-// TC74 I2C configuration (from devicetree overlay)
+/**
+ * @def TC74_NODE
+ * @brief DeviceTree node label for the TC74 temperature sensor.
+ */
+
+/**
+ * @def TC74_CMD_RTR
+ * @brief Command to read the temperature register from the TC74 sensor.
+ */
 #define TC74_NODE DT_NODELABEL(tc74sensor)
 static const struct i2c_dt_spec tc74 = I2C_DT_SPEC_GET(TC74_NODE);
-#define TC74_CMD_RTR 0x00  // Temperature register
+#define TC74_CMD_RTR 0x00  
 
+/**
+ * @brief Task reads TC74 sensor to get the temperature and updates RTDB.
+ *
+ * This task connects the I2C interface to the TC74 sensor. When the bus is ready,
+ * it reads the current temperature every second.
+ * 
+ * Prints an error message if the I2C reading fails. 
+ *
+ * @param a Unused
+ * @param b Unused
+ * @param c Unused
+ */
 void temp_task(void *a, void *b, void *c) {
     if (!device_is_ready(tc74.bus)) {
         printk("I2C bus not ready\n");

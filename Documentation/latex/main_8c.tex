@@ -1,5 +1,10 @@
 \doxysection{src/main.c File Reference}
 \hypertarget{main_8c}{}\label{main_8c}\index{src/main.c@{src/main.c}}
+
+
+Entry point of the application that initializes GPIOs and starts system tasks.  
+
+
 {\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/device.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/devicetree.\+h$>$}\newline
@@ -10,9 +15,9 @@
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{main_8c_a840217aee9bd887463dad1b56defb051}{SLEEP\+\_\+\+TIME\+\_\+\+MS}}~100
-\item 
+\begin{DoxyCompactList}\small\item\em The polling time for the loop in milliseconds. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{main_8c_a661852bec8ab9683d43ad02881c2f2b5}{LED0\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led0)
-\item 
+\begin{DoxyCompactList}\small\item\em Device\+Tree aliases for LEDs. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{main_8c_ac8b7bbb65d5065e43a35775d9fc3e322}{LED1\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led1)
 \item 
 \#define \mbox{\hyperlink{main_8c_a9014b2cb02041c926b50b6411232ee82}{LED2\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led2)
@@ -20,7 +25,7 @@
 \#define \mbox{\hyperlink{main_8c_ad5246f73682d98292ef7d7b038582700}{LED3\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led3)
 \item 
 \#define \mbox{\hyperlink{main_8c_aae95411f1701c6da6aee1d9cfd974513}{BUT0\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw0)
-\item 
+\begin{DoxyCompactList}\small\item\em Device\+Tree aliases for buttons. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{main_8c_ad4ede373699c5e72c9bfb39773deb391}{BUT1\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw1)
 \item 
 \#define \mbox{\hyperlink{main_8c_a8c2121bb4a318cb9ed0a125e0400fe49}{BUT2\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw3)
@@ -29,23 +34,23 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{main_8c_a468eba317e8c2e55b8ac3c0cc6d0b908}{K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE}} (button\+\_\+stack, 512)
-\item 
+\begin{DoxyCompactList}\small\item\em Stack and thread data for button task. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_af099339d864d921d7d0f35ae14377822}{button\+\_\+task}} (void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
-\item 
+\begin{DoxyCompactList}\small\item\em The task monitors the button input and updates state of the system. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{main_8c_ab1e485170e5065d92b3a035f9c3f80e4}{K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE}} (led\+\_\+stack, 512)
-\item 
+\begin{DoxyCompactList}\small\item\em Stack and thread data for LED task. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a7b3e4b46191b348e298c3fc3e26a834e}{led\+\_\+task}} (void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
-\item 
+\begin{DoxyCompactList}\small\item\em Task that updates the LED states based on system status. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{main_8c_a161e14e6b6a42db24cf342e66a52e68b}{K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE}} (temp\+\_\+stack, 512)
-\item 
+\begin{DoxyCompactList}\small\item\em Stack and thread data for temperature task. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a541d60d50f0b544ba57ae5dab7653303}{temp\+\_\+task}} (void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
-\item 
+\begin{DoxyCompactList}\small\item\em Task reads TC74 sensor to get the temperature and updates RTDB. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{main_8c_aae672bada06ee09c96094ff54327c423}{K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE}} (heater\+\_\+stack, 512)
-\item 
+\begin{DoxyCompactList}\small\item\em Stack and thread data for heater task. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a0fc9012e626c07e880b68c610a4b216d}{heater\+\_\+task}} (void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
-\item 
+\begin{DoxyCompactList}\small\item\em Task that turns the heater on/off based on system temperature and state. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Main function/ entry point of the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,12 +64,21 @@ struct k\+\_\+thread \mbox{\hyperlink{main_8c_afa7ec3eab307a2c6c065a819a83f8d93}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Entry point of the application that initializes GPIOs and starts system tasks. 
+
+This file sets up the LED and button GPIOs and launches separate threads for handling buttons, LEDs, temperature sensing, and heater control. 
+
 \doxysubsection{Macro Definition Documentation}
 \Hypertarget{main_8c_aae95411f1701c6da6aee1d9cfd974513}\index{main.c@{main.c}!BUT0\_NODE@{BUT0\_NODE}}
 \index{BUT0\_NODE@{BUT0\_NODE}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{BUT0\_NODE}{BUT0\_NODE}}
 {\footnotesize\ttfamily \label{main_8c_aae95411f1701c6da6aee1d9cfd974513} 
 \#define BUT0\+\_\+\+NODE~DT\+\_\+\+ALIAS(sw0)}
+
+
+
+Device\+Tree aliases for buttons. 
 
 \Hypertarget{main_8c_ad4ede373699c5e72c9bfb39773deb391}\index{main.c@{main.c}!BUT1\_NODE@{BUT1\_NODE}}
 \index{BUT1\_NODE@{BUT1\_NODE}!main.c@{main.c}}
@@ -83,6 +97,10 @@ struct k\+\_\+thread \mbox{\hyperlink{main_8c_afa7ec3eab307a2c6c065a819a83f8d93}
 \doxysubsubsection{\texorpdfstring{LED0\_NODE}{LED0\_NODE}}
 {\footnotesize\ttfamily \label{main_8c_a661852bec8ab9683d43ad02881c2f2b5} 
 \#define LED0\+\_\+\+NODE~DT\+\_\+\+ALIAS(led0)}
+
+
+
+Device\+Tree aliases for LEDs. 
 
 \Hypertarget{main_8c_ac8b7bbb65d5065e43a35775d9fc3e322}\index{main.c@{main.c}!LED1\_NODE@{LED1\_NODE}}
 \index{LED1\_NODE@{LED1\_NODE}!main.c@{main.c}}
@@ -110,6 +128,10 @@ struct k\+\_\+thread \mbox{\hyperlink{main_8c_afa7ec3eab307a2c6c065a819a83f8d93}
 
 
 
+The polling time for the loop in milliseconds. 
+
+
+
 \doxysubsection{Function Documentation}
 \Hypertarget{main_8c_af099339d864d921d7d0f35ae14377822}\index{main.c@{main.c}!button\_task@{button\_task}}
 \index{button\_task@{button\_task}!main.c@{main.c}}
@@ -117,17 +139,62 @@ struct k\+\_\+thread \mbox{\hyperlink{main_8c_afa7ec3eab307a2c6c065a819a83f8d93}
 {\footnotesize\ttfamily \label{main_8c_af099339d864d921d7d0f35ae14377822} 
 void button\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
+
+
+The task monitors the button input and updates state of the system. 
+
+This task runs continuously, reads the input from three buttons as follows\+:
+\begin{DoxyItemize}
+\item Button 0 is used to toggle the system ON/ OFF.
+\item Button 1 is used to increase the temperature setpoint.
+\item Button 2 is used to decrease the temperature setpoint.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Unused \\
+\hline
+{\em b} & Unused \\
+\hline
+{\em c} & Unused \\
+\hline
+\end{DoxyParams}
 \Hypertarget{main_8c_a0fc9012e626c07e880b68c610a4b216d}\index{main.c@{main.c}!heater\_task@{heater\_task}}
 \index{heater\_task@{heater\_task}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{heater\_task()}{heater\_task()}}
 {\footnotesize\ttfamily \label{main_8c_a0fc9012e626c07e880b68c610a4b216d} 
 void heater\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
+
+
+Task that turns the heater on/off based on system temperature and state. 
+
+The heater is turned on if\+:
+\begin{DoxyItemize}
+\item The system is on.
+\item The current temperature is more than 2 degrees below the setpoint.
+\end{DoxyItemize}
+
+It compares the setpoint and current temperature, updates the heater pin, and logs/ prints any state changes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Unused \\
+\hline
+{\em b} & Unused \\
+\hline
+{\em c} & Unused \\
+\hline
+\end{DoxyParams}
 \Hypertarget{main_8c_a468eba317e8c2e55b8ac3c0cc6d0b908}\index{main.c@{main.c}!K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}}
 \index{K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{K\_THREAD\_STACK\_DEFINE()}{K\_THREAD\_STACK\_DEFINE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily \label{main_8c_a468eba317e8c2e55b8ac3c0cc6d0b908} 
 K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{button\+\_\+stack}]{}{, }\item[{512}]{}{}\end{DoxyParamCaption})}
+
+
+
+Stack and thread data for button task. 
 
 \Hypertarget{main_8c_aae672bada06ee09c96094ff54327c423}\index{main.c@{main.c}!K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}}
 \index{K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}!main.c@{main.c}}
@@ -135,11 +202,19 @@ K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{butto
 {\footnotesize\ttfamily \label{main_8c_aae672bada06ee09c96094ff54327c423} 
 K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{heater\+\_\+stack}]{}{, }\item[{512}]{}{}\end{DoxyParamCaption})}
 
+
+
+Stack and thread data for heater task. 
+
 \Hypertarget{main_8c_ab1e485170e5065d92b3a035f9c3f80e4}\index{main.c@{main.c}!K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}}
 \index{K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{K\_THREAD\_STACK\_DEFINE()}{K\_THREAD\_STACK\_DEFINE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily \label{main_8c_ab1e485170e5065d92b3a035f9c3f80e4} 
 K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{led\+\_\+stack}]{}{, }\item[{512}]{}{}\end{DoxyParamCaption})}
+
+
+
+Stack and thread data for LED task. 
 
 \Hypertarget{main_8c_a161e14e6b6a42db24cf342e66a52e68b}\index{main.c@{main.c}!K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}}
 \index{K\_THREAD\_STACK\_DEFINE@{K\_THREAD\_STACK\_DEFINE}!main.c@{main.c}}
@@ -147,24 +222,75 @@ K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{led\+
 {\footnotesize\ttfamily \label{main_8c_a161e14e6b6a42db24cf342e66a52e68b} 
 K\+\_\+\+THREAD\+\_\+\+STACK\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{temp\+\_\+stack}]{}{, }\item[{512}]{}{}\end{DoxyParamCaption})}
 
+
+
+Stack and thread data for temperature task. 
+
 \Hypertarget{main_8c_a7b3e4b46191b348e298c3fc3e26a834e}\index{main.c@{main.c}!led\_task@{led\_task}}
 \index{led\_task@{led\_task}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{led\_task()}{led\_task()}}
 {\footnotesize\ttfamily \label{main_8c_a7b3e4b46191b348e298c3fc3e26a834e} 
 void led\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
+
+
+Task that updates the LED states based on system status. 
+
+This task runs continuously, checking the system state from the RTDB. It communicates with the user by altering the four LEDs as follows\+:
+\begin{DoxyItemize}
+\item LED0\+: ON if system is on.
+\item LED1\+: ON if temperature difference is within the normal range, i.\+e. ±2°C.
+\item LED2\+: ON if temperature is 2°C (or more) below the setpoint.
+\item LED3\+: ON if temperature is 2°C (or more) above the setpoint.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Unused \\
+\hline
+{\em b} & Unused \\
+\hline
+{\em c} & Unused \\
+\hline
+\end{DoxyParams}
 \Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
 \index{main@{main}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily \label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
 int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+
+
+Main function/ entry point of the system. 
+
+The main function initializes all the needed GPIO devices for input/ output. It checks if they are ready and creates threads for handling button input, temperature sensing, LED control, and heater control.
+
+\begin{DoxyReturn}{Returns}
+Always returns 0. 
+\end{DoxyReturn}
 \Hypertarget{main_8c_a541d60d50f0b544ba57ae5dab7653303}\index{main.c@{main.c}!temp\_task@{temp\_task}}
 \index{temp\_task@{temp\_task}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{temp\_task()}{temp\_task()}}
 {\footnotesize\ttfamily \label{main_8c_a541d60d50f0b544ba57ae5dab7653303} 
 void temp\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
+
+
+Task reads TC74 sensor to get the temperature and updates RTDB. 
+
+This task connects the I2C interface to the TC74 sensor. When the bus is ready, it reads the current temperature every second.
+
+Prints an error message if the I2C reading fails.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Unused \\
+\hline
+{\em b} & Unused \\
+\hline
+{\em c} & Unused \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Variable Documentation}

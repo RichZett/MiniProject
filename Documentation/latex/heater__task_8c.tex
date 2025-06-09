@@ -1,5 +1,10 @@
 \doxysection{src/heater\+\_\+task.c File Reference}
 \hypertarget{heater__task_8c}{}\label{heater__task_8c}\index{src/heater\_task.c@{src/heater\_task.c}}
+
+
+Heater control task based on the temperature and system state.  
+
+
 {\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/drivers/gpio.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/devicetree.\+h$>$}\newline
@@ -7,21 +12,30 @@
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{heater__task_8c_a14ee22dbcf5f283c6f64f866213102b3}{HEATER\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(heater)
-\end{DoxyCompactItemize}
+\#define \mbox{\hyperlink{heater__task_8c_aef1152d0eaf40f031a3c1b6516b36096}{OUTPUT\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(outputpin)
+\begin{DoxyCompactList}\small\item\em Device\+Tree alias for the heater output control pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{heater__task_8c_a3deddd7fa58002e777f0bb41f800cdc9}{heater\+\_\+task}} (void \texorpdfstring{$\ast$}{*}a, void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}c)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Task that turns the heater on/off based on system temperature and state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Heater control task based on the temperature and system state. 
+
+This task checks the system state and the current temperature, and controls the heater GPIO output accordingly. The heater turns on if the system is in the on-\/state and the current temperature is more than 2 degrees below the setpoint. 
 
 \doxysubsection{Macro Definition Documentation}
-\Hypertarget{heater__task_8c_a14ee22dbcf5f283c6f64f866213102b3}\index{heater\_task.c@{heater\_task.c}!HEATER\_NODE@{HEATER\_NODE}}
-\index{HEATER\_NODE@{HEATER\_NODE}!heater\_task.c@{heater\_task.c}}
-\doxysubsubsection{\texorpdfstring{HEATER\_NODE}{HEATER\_NODE}}
-{\footnotesize\ttfamily \label{heater__task_8c_a14ee22dbcf5f283c6f64f866213102b3} 
-\#define HEATER\+\_\+\+NODE~DT\+\_\+\+ALIAS(heater)}
+\Hypertarget{heater__task_8c_aef1152d0eaf40f031a3c1b6516b36096}\index{heater\_task.c@{heater\_task.c}!OUTPUT\_NODE@{OUTPUT\_NODE}}
+\index{OUTPUT\_NODE@{OUTPUT\_NODE}!heater\_task.c@{heater\_task.c}}
+\doxysubsubsection{\texorpdfstring{OUTPUT\_NODE}{OUTPUT\_NODE}}
+{\footnotesize\ttfamily \label{heater__task_8c_aef1152d0eaf40f031a3c1b6516b36096} 
+\#define OUTPUT\+\_\+\+NODE~DT\+\_\+\+ALIAS(outputpin)}
+
+
+
+Device\+Tree alias for the heater output control pin. 
 
 
 
@@ -32,3 +46,24 @@ void \mbox{\hyperlink{heater__task_8c_a3deddd7fa58002e777f0bb41f800cdc9}{heater\
 {\footnotesize\ttfamily \label{heater__task_8c_a3deddd7fa58002e777f0bb41f800cdc9} 
 void heater\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})}
 
+
+
+Task that turns the heater on/off based on system temperature and state. 
+
+The heater is turned on if\+:
+\begin{DoxyItemize}
+\item The system is on.
+\item The current temperature is more than 2 degrees below the setpoint.
+\end{DoxyItemize}
+
+It compares the setpoint and current temperature, updates the heater pin, and logs/ prints any state changes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Unused \\
+\hline
+{\em b} & Unused \\
+\hline
+{\em c} & Unused \\
+\hline
+\end{DoxyParams}

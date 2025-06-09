@@ -33,7 +33,7 @@
 		mcuboot-led0 = &led0;
 		watchdog0 = &wdt0;
 		spi-flash0 = &mx25r64;
-		heater = &gpio0;
+		outputpin = &output_pin;
 	};
 	soc {
 		#address-cells = < 0x1 >;
@@ -749,6 +749,10 @@
 		led3: led_3 {
 			gpios = < &gpio0 0x10 0x1 >;
 			label = "Green LED 3";
+		};
+		output_pin: my_output_pin {
+			gpios = < &gpio0 0xb 0x0 >;
+			label = "Output pin";
 		};
 	};
 	pwmleds {

@@ -1,5 +1,10 @@
 \doxysection{src/button\+\_\+task.c File Reference}
 \hypertarget{button__task_8c}{}\label{button__task_8c}\index{src/button\_task.c@{src/button\_task.c}}
+
+
+Button input control for the system.  
+
+
 {\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/drivers/gpio.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/devicetree.\+h$>$}\newline
@@ -8,25 +13,34 @@
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{button__task_8c_aae95411f1701c6da6aee1d9cfd974513}{BUT0\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw0)
-\item 
+\#define \mbox{\hyperlink{button__task_8c_aae95411f1701c6da6aee1d9cfd974513}{BUT0\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw2)
+\begin{DoxyCompactList}\small\item\em Device\+Tree alias for button 0 -\/ toggles the system ON/\+OFF. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{button__task_8c_ad4ede373699c5e72c9bfb39773deb391}{BUT1\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw1)
-\item 
+\begin{DoxyCompactList}\small\item\em Device\+Tree alias for button 1 -\/ increases the temperature setpoint. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{button__task_8c_a8c2121bb4a318cb9ed0a125e0400fe49}{BUT2\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(sw3)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Device\+Tree alias for button 2 -\/ decreases the temperature setpoint. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{button__task_8c_a28ab112818948e6ca985fd71d7f54533}{button\+\_\+task}} (void \texorpdfstring{$\ast$}{*}a, void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}c)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The task monitors the button input and updates state of the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Button input control for the system. 
+
+This task reads the button control input of three buttons, and changes the state of the system accordingly. It can toggle ON/\+OFF the system and increase/decrease the temperature setpoint. 
 
 \doxysubsection{Macro Definition Documentation}
 \Hypertarget{button__task_8c_aae95411f1701c6da6aee1d9cfd974513}\index{button\_task.c@{button\_task.c}!BUT0\_NODE@{BUT0\_NODE}}
 \index{BUT0\_NODE@{BUT0\_NODE}!button\_task.c@{button\_task.c}}
 \doxysubsubsection{\texorpdfstring{BUT0\_NODE}{BUT0\_NODE}}
 {\footnotesize\ttfamily \label{button__task_8c_aae95411f1701c6da6aee1d9cfd974513} 
-\#define BUT0\+\_\+\+NODE~DT\+\_\+\+ALIAS(sw0)}
+\#define BUT0\+\_\+\+NODE~DT\+\_\+\+ALIAS(sw2)}
+
+
+
+Device\+Tree alias for button 0 -\/ toggles the system ON/\+OFF. 
 
 \Hypertarget{button__task_8c_ad4ede373699c5e72c9bfb39773deb391}\index{button\_task.c@{button\_task.c}!BUT1\_NODE@{BUT1\_NODE}}
 \index{BUT1\_NODE@{BUT1\_NODE}!button\_task.c@{button\_task.c}}
@@ -34,11 +48,19 @@ void \mbox{\hyperlink{button__task_8c_a28ab112818948e6ca985fd71d7f54533}{button\
 {\footnotesize\ttfamily \label{button__task_8c_ad4ede373699c5e72c9bfb39773deb391} 
 \#define BUT1\+\_\+\+NODE~DT\+\_\+\+ALIAS(sw1)}
 
+
+
+Device\+Tree alias for button 1 -\/ increases the temperature setpoint. 
+
 \Hypertarget{button__task_8c_a8c2121bb4a318cb9ed0a125e0400fe49}\index{button\_task.c@{button\_task.c}!BUT2\_NODE@{BUT2\_NODE}}
 \index{BUT2\_NODE@{BUT2\_NODE}!button\_task.c@{button\_task.c}}
 \doxysubsubsection{\texorpdfstring{BUT2\_NODE}{BUT2\_NODE}}
 {\footnotesize\ttfamily \label{button__task_8c_a8c2121bb4a318cb9ed0a125e0400fe49} 
 \#define BUT2\+\_\+\+NODE~DT\+\_\+\+ALIAS(sw3)}
+
+
+
+Device\+Tree alias for button 2 -\/ decreases the temperature setpoint. 
 
 
 
@@ -49,3 +71,23 @@ void \mbox{\hyperlink{button__task_8c_a28ab112818948e6ca985fd71d7f54533}{button\
 {\footnotesize\ttfamily \label{button__task_8c_a28ab112818948e6ca985fd71d7f54533} 
 void button\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})}
 
+
+
+The task monitors the button input and updates state of the system. 
+
+This task runs continuously, reads the input from three buttons as follows\+:
+\begin{DoxyItemize}
+\item Button 0 is used to toggle the system ON/ OFF.
+\item Button 1 is used to increase the temperature setpoint.
+\item Button 2 is used to decrease the temperature setpoint.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Unused \\
+\hline
+{\em b} & Unused \\
+\hline
+{\em c} & Unused \\
+\hline
+\end{DoxyParams}

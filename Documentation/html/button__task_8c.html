@@ -109,6 +109,9 @@ $(function(){initNavTree('button__task_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">button_task.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Button input control for the system.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;zephyr/kernel.h&gt;</code><br />
 <code>#include &lt;zephyr/drivers/gpio.h&gt;</code><br />
 <code>#include &lt;zephyr/devicetree.h&gt;</code><br />
@@ -117,19 +120,26 @@ $(function(){initNavTree('button__task_8c.html',''); initResizable(true); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aae95411f1701c6da6aee1d9cfd974513" id="r_aae95411f1701c6da6aee1d9cfd974513"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae95411f1701c6da6aee1d9cfd974513">BUT0_NODE</a>&#160;&#160;&#160;DT_ALIAS(sw0)</td></tr>
+<tr class="memitem:aae95411f1701c6da6aee1d9cfd974513" id="r_aae95411f1701c6da6aee1d9cfd974513"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae95411f1701c6da6aee1d9cfd974513">BUT0_NODE</a>&#160;&#160;&#160;DT_ALIAS(sw2)</td></tr>
+<tr class="memdesc:aae95411f1701c6da6aee1d9cfd974513"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeviceTree alias for button 0 - toggles the system ON/OFF.  <br /></td></tr>
 <tr class="separator:aae95411f1701c6da6aee1d9cfd974513"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4ede373699c5e72c9bfb39773deb391" id="r_ad4ede373699c5e72c9bfb39773deb391"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4ede373699c5e72c9bfb39773deb391">BUT1_NODE</a>&#160;&#160;&#160;DT_ALIAS(sw1)</td></tr>
+<tr class="memdesc:ad4ede373699c5e72c9bfb39773deb391"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeviceTree alias for button 1 - increases the temperature setpoint.  <br /></td></tr>
 <tr class="separator:ad4ede373699c5e72c9bfb39773deb391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c2121bb4a318cb9ed0a125e0400fe49" id="r_a8c2121bb4a318cb9ed0a125e0400fe49"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c2121bb4a318cb9ed0a125e0400fe49">BUT2_NODE</a>&#160;&#160;&#160;DT_ALIAS(sw3)</td></tr>
+<tr class="memdesc:a8c2121bb4a318cb9ed0a125e0400fe49"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeviceTree alias for button 2 - decreases the temperature setpoint.  <br /></td></tr>
 <tr class="separator:a8c2121bb4a318cb9ed0a125e0400fe49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a28ab112818948e6ca985fd71d7f54533" id="r_a28ab112818948e6ca985fd71d7f54533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28ab112818948e6ca985fd71d7f54533">button_task</a> (void *a, void *b, void *c)</td></tr>
+<tr class="memdesc:a28ab112818948e6ca985fd71d7f54533"><td class="mdescLeft">&#160;</td><td class="mdescRight">The task monitors the button input and updates state of the system.  <br /></td></tr>
 <tr class="separator:a28ab112818948e6ca985fd71d7f54533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Button input control for the system. </p>
+<p>This task reads the button control input of three buttons, and changes the state of the system accordingly. It can toggle ON/OFF the system and increase/decrease the temperature setpoint. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="aae95411f1701c6da6aee1d9cfd974513" name="aae95411f1701c6da6aee1d9cfd974513"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae95411f1701c6da6aee1d9cfd974513">&#9670;&#160;</a></span>BUT0_NODE</h2>
 
@@ -137,10 +147,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BUT0_NODE&#160;&#160;&#160;DT_ALIAS(sw0)</td>
+          <td class="memname">#define BUT0_NODE&#160;&#160;&#160;DT_ALIAS(sw2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>DeviceTree alias for button 0 - toggles the system ON/OFF. </p>
 
 </div>
 </div>
@@ -156,6 +168,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>DeviceTree alias for button 1 - increases the temperature setpoint. </p>
+
 </div>
 </div>
 <a id="a8c2121bb4a318cb9ed0a125e0400fe49" name="a8c2121bb4a318cb9ed0a125e0400fe49"></a>
@@ -169,6 +183,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>DeviceTree alias for button 2 - decreases the temperature setpoint. </p>
 
 </div>
 </div>
@@ -196,6 +212,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The task monitors the button input and updates state of the system. </p>
+<p>This task runs continuously, reads the input from three buttons as follows:</p><ul>
+<li>Button 0 is used to toggle the system ON/ OFF.</li>
+<li>Button 1 is used to increase the temperature setpoint.</li>
+<li>Button 2 is used to decrease the temperature setpoint.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Unused </td></tr>
+    <tr><td class="paramname">b</td><td>Unused </td></tr>
+    <tr><td class="paramname">c</td><td>Unused </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

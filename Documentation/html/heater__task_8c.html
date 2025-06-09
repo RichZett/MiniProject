@@ -109,6 +109,9 @@ $(function(){initNavTree('heater__task_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">heater_task.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Heater control task based on the temperature and system state.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;zephyr/kernel.h&gt;</code><br />
 <code>#include &lt;zephyr/drivers/gpio.h&gt;</code><br />
 <code>#include &lt;zephyr/devicetree.h&gt;</code><br />
@@ -116,26 +119,33 @@ $(function(){initNavTree('heater__task_8c.html',''); initResizable(true); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a14ee22dbcf5f283c6f64f866213102b3" id="r_a14ee22dbcf5f283c6f64f866213102b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14ee22dbcf5f283c6f64f866213102b3">HEATER_NODE</a>&#160;&#160;&#160;DT_ALIAS(heater)</td></tr>
-<tr class="separator:a14ee22dbcf5f283c6f64f866213102b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1152d0eaf40f031a3c1b6516b36096" id="r_aef1152d0eaf40f031a3c1b6516b36096"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef1152d0eaf40f031a3c1b6516b36096">OUTPUT_NODE</a>&#160;&#160;&#160;DT_ALIAS(outputpin)</td></tr>
+<tr class="memdesc:aef1152d0eaf40f031a3c1b6516b36096"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeviceTree alias for the heater output control pin.  <br /></td></tr>
+<tr class="separator:aef1152d0eaf40f031a3c1b6516b36096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3deddd7fa58002e777f0bb41f800cdc9" id="r_a3deddd7fa58002e777f0bb41f800cdc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3deddd7fa58002e777f0bb41f800cdc9">heater_task</a> (void *a, void *b, void *c)</td></tr>
+<tr class="memdesc:a3deddd7fa58002e777f0bb41f800cdc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task that turns the heater on/off based on system temperature and state.  <br /></td></tr>
 <tr class="separator:a3deddd7fa58002e777f0bb41f800cdc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a14ee22dbcf5f283c6f64f866213102b3" name="a14ee22dbcf5f283c6f64f866213102b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14ee22dbcf5f283c6f64f866213102b3">&#9670;&#160;</a></span>HEATER_NODE</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Heater control task based on the temperature and system state. </p>
+<p>This task checks the system state and the current temperature, and controls the heater GPIO output accordingly. The heater turns on if the system is in the on-state and the current temperature is more than 2 degrees below the setpoint. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aef1152d0eaf40f031a3c1b6516b36096" name="aef1152d0eaf40f031a3c1b6516b36096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1152d0eaf40f031a3c1b6516b36096">&#9670;&#160;</a></span>OUTPUT_NODE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define HEATER_NODE&#160;&#160;&#160;DT_ALIAS(heater)</td>
+          <td class="memname">#define OUTPUT_NODE&#160;&#160;&#160;DT_ALIAS(outputpin)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>DeviceTree alias for the heater output control pin. </p>
 
 </div>
 </div>
@@ -163,6 +173,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Task that turns the heater on/off based on system temperature and state. </p>
+<p>The heater is turned on if:</p><ul>
+<li>The system is on.</li>
+<li>The current temperature is more than 2 degrees below the setpoint.</li>
+</ul>
+<p>It compares the setpoint and current temperature, updates the heater pin, and logs/ prints any state changes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Unused </td></tr>
+    <tr><td class="paramname">b</td><td>Unused </td></tr>
+    <tr><td class="paramname">c</td><td>Unused </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

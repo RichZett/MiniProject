@@ -1,5 +1,10 @@
 \doxysection{src/led\+\_\+task.c File Reference}
 \hypertarget{led__task_8c}{}\label{led__task_8c}\index{src/led\_task.c@{src/led\_task.c}}
+
+
+LED logic implementation of project.  
+
+
 {\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/drivers/gpio.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/devicetree.\+h$>$}\newline
@@ -9,19 +14,24 @@
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{led__task_8c_a661852bec8ab9683d43ad02881c2f2b5}{LED0\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led0)    /\texorpdfstring{$\ast$}{*} ON/OFF \texorpdfstring{$\ast$}{*}/
-\item 
+\begin{DoxyCompactList}\small\item\em Device\+Tree alias for LED0 -\/ indicates system ON/\+OFF state. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{led__task_8c_ac8b7bbb65d5065e43a35775d9fc3e322}{LED1\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led1)    /\texorpdfstring{$\ast$}{*} Normal range \texorpdfstring{$\ast$}{*}/
-\item 
+\begin{DoxyCompactList}\small\item\em Device\+Tree alias for LED1 -\/ indicates the temperature is within the normal range. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{led__task_8c_a9014b2cb02041c926b50b6411232ee82}{LED2\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led2)    /\texorpdfstring{$\ast$}{*} Too low \texorpdfstring{$\ast$}{*}/
-\item 
+\begin{DoxyCompactList}\small\item\em Device\+Tree alias for LED2 -\/ indicates the temperature is too low. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{led__task_8c_ad5246f73682d98292ef7d7b038582700}{LED3\+\_\+\+NODE}}~DT\+\_\+\+ALIAS(led3)    /\texorpdfstring{$\ast$}{*} Too high \texorpdfstring{$\ast$}{*}/
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Device\+Tree alias for LED3 -\/ indicates the temperature is too high. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{led__task_8c_a8ee90e672bf1005d9c6844f8aa898eae}{led\+\_\+task}} (void \texorpdfstring{$\ast$}{*}a, void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}c)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Task that updates the LED states based on system status. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+LED logic implementation of project. 
+
+This task uses four LEDs to visually represent the status of the system including power state and temperature deviation. 
 
 \doxysubsection{Macro Definition Documentation}
 \Hypertarget{led__task_8c_a661852bec8ab9683d43ad02881c2f2b5}\index{led\_task.c@{led\_task.c}!LED0\_NODE@{LED0\_NODE}}
@@ -30,11 +40,19 @@ void \mbox{\hyperlink{led__task_8c_a8ee90e672bf1005d9c6844f8aa898eae}{led\+\_\+t
 {\footnotesize\ttfamily \label{led__task_8c_a661852bec8ab9683d43ad02881c2f2b5} 
 \#define LED0\+\_\+\+NODE~DT\+\_\+\+ALIAS(led0)    /\texorpdfstring{$\ast$}{*} ON/OFF \texorpdfstring{$\ast$}{*}/}
 
+
+
+Device\+Tree alias for LED0 -\/ indicates system ON/\+OFF state. 
+
 \Hypertarget{led__task_8c_ac8b7bbb65d5065e43a35775d9fc3e322}\index{led\_task.c@{led\_task.c}!LED1\_NODE@{LED1\_NODE}}
 \index{LED1\_NODE@{LED1\_NODE}!led\_task.c@{led\_task.c}}
 \doxysubsubsection{\texorpdfstring{LED1\_NODE}{LED1\_NODE}}
 {\footnotesize\ttfamily \label{led__task_8c_ac8b7bbb65d5065e43a35775d9fc3e322} 
 \#define LED1\+\_\+\+NODE~DT\+\_\+\+ALIAS(led1)    /\texorpdfstring{$\ast$}{*} Normal range \texorpdfstring{$\ast$}{*}/}
+
+
+
+Device\+Tree alias for LED1 -\/ indicates the temperature is within the normal range. 
 
 \Hypertarget{led__task_8c_a9014b2cb02041c926b50b6411232ee82}\index{led\_task.c@{led\_task.c}!LED2\_NODE@{LED2\_NODE}}
 \index{LED2\_NODE@{LED2\_NODE}!led\_task.c@{led\_task.c}}
@@ -42,11 +60,19 @@ void \mbox{\hyperlink{led__task_8c_a8ee90e672bf1005d9c6844f8aa898eae}{led\+\_\+t
 {\footnotesize\ttfamily \label{led__task_8c_a9014b2cb02041c926b50b6411232ee82} 
 \#define LED2\+\_\+\+NODE~DT\+\_\+\+ALIAS(led2)    /\texorpdfstring{$\ast$}{*} Too low \texorpdfstring{$\ast$}{*}/}
 
+
+
+Device\+Tree alias for LED2 -\/ indicates the temperature is too low. 
+
 \Hypertarget{led__task_8c_ad5246f73682d98292ef7d7b038582700}\index{led\_task.c@{led\_task.c}!LED3\_NODE@{LED3\_NODE}}
 \index{LED3\_NODE@{LED3\_NODE}!led\_task.c@{led\_task.c}}
 \doxysubsubsection{\texorpdfstring{LED3\_NODE}{LED3\_NODE}}
 {\footnotesize\ttfamily \label{led__task_8c_ad5246f73682d98292ef7d7b038582700} 
 \#define LED3\+\_\+\+NODE~DT\+\_\+\+ALIAS(led3)    /\texorpdfstring{$\ast$}{*} Too high \texorpdfstring{$\ast$}{*}/}
+
+
+
+Device\+Tree alias for LED3 -\/ indicates the temperature is too high. 
 
 
 
@@ -57,3 +83,24 @@ void \mbox{\hyperlink{led__task_8c_a8ee90e672bf1005d9c6844f8aa898eae}{led\+\_\+t
 {\footnotesize\ttfamily \label{led__task_8c_a8ee90e672bf1005d9c6844f8aa898eae} 
 void led\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})}
 
+
+
+Task that updates the LED states based on system status. 
+
+This task runs continuously, checking the system state from the RTDB. It communicates with the user by altering the four LEDs as follows\+:
+\begin{DoxyItemize}
+\item LED0\+: ON if system is on.
+\item LED1\+: ON if temperature difference is within the normal range, i.\+e. ±2°C.
+\item LED2\+: ON if temperature is 2°C (or more) below the setpoint.
+\item LED3\+: ON if temperature is 2°C (or more) above the setpoint.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Unused \\
+\hline
+{\em b} & Unused \\
+\hline
+{\em c} & Unused \\
+\hline
+\end{DoxyParams}

@@ -109,6 +109,9 @@ $(function(){initNavTree('led__task_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">led_task.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>LED logic implementation of project.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;zephyr/kernel.h&gt;</code><br />
 <code>#include &lt;zephyr/drivers/gpio.h&gt;</code><br />
 <code>#include &lt;zephyr/devicetree.h&gt;</code><br />
@@ -118,20 +121,28 @@ $(function(){initNavTree('led__task_8c.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a661852bec8ab9683d43ad02881c2f2b5" id="r_a661852bec8ab9683d43ad02881c2f2b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a661852bec8ab9683d43ad02881c2f2b5">LED0_NODE</a>&#160;&#160;&#160;DT_ALIAS(led0)    /* ON/OFF */</td></tr>
+<tr class="memdesc:a661852bec8ab9683d43ad02881c2f2b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeviceTree alias for LED0 - indicates system ON/OFF state.  <br /></td></tr>
 <tr class="separator:a661852bec8ab9683d43ad02881c2f2b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8b7bbb65d5065e43a35775d9fc3e322" id="r_ac8b7bbb65d5065e43a35775d9fc3e322"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8b7bbb65d5065e43a35775d9fc3e322">LED1_NODE</a>&#160;&#160;&#160;DT_ALIAS(led1)    /* Normal range */</td></tr>
+<tr class="memdesc:ac8b7bbb65d5065e43a35775d9fc3e322"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeviceTree alias for LED1 - indicates the temperature is within the normal range.  <br /></td></tr>
 <tr class="separator:ac8b7bbb65d5065e43a35775d9fc3e322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9014b2cb02041c926b50b6411232ee82" id="r_a9014b2cb02041c926b50b6411232ee82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9014b2cb02041c926b50b6411232ee82">LED2_NODE</a>&#160;&#160;&#160;DT_ALIAS(led2)    /* Too low */</td></tr>
+<tr class="memdesc:a9014b2cb02041c926b50b6411232ee82"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeviceTree alias for LED2 - indicates the temperature is too low.  <br /></td></tr>
 <tr class="separator:a9014b2cb02041c926b50b6411232ee82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5246f73682d98292ef7d7b038582700" id="r_ad5246f73682d98292ef7d7b038582700"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5246f73682d98292ef7d7b038582700">LED3_NODE</a>&#160;&#160;&#160;DT_ALIAS(led3)    /* Too high */</td></tr>
+<tr class="memdesc:ad5246f73682d98292ef7d7b038582700"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeviceTree alias for LED3 - indicates the temperature is too high.  <br /></td></tr>
 <tr class="separator:ad5246f73682d98292ef7d7b038582700"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8ee90e672bf1005d9c6844f8aa898eae" id="r_a8ee90e672bf1005d9c6844f8aa898eae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ee90e672bf1005d9c6844f8aa898eae">led_task</a> (void *a, void *b, void *c)</td></tr>
+<tr class="memdesc:a8ee90e672bf1005d9c6844f8aa898eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task that updates the LED states based on system status.  <br /></td></tr>
 <tr class="separator:a8ee90e672bf1005d9c6844f8aa898eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>LED logic implementation of project. </p>
+<p>This task uses four LEDs to visually represent the status of the system including power state and temperature deviation. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a661852bec8ab9683d43ad02881c2f2b5" name="a661852bec8ab9683d43ad02881c2f2b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a661852bec8ab9683d43ad02881c2f2b5">&#9670;&#160;</a></span>LED0_NODE</h2>
 
@@ -143,6 +154,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>DeviceTree alias for LED0 - indicates system ON/OFF state. </p>
 
 </div>
 </div>
@@ -158,6 +171,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>DeviceTree alias for LED1 - indicates the temperature is within the normal range. </p>
+
 </div>
 </div>
 <a id="a9014b2cb02041c926b50b6411232ee82" name="a9014b2cb02041c926b50b6411232ee82"></a>
@@ -172,6 +187,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>DeviceTree alias for LED2 - indicates the temperature is too low. </p>
+
 </div>
 </div>
 <a id="ad5246f73682d98292ef7d7b038582700" name="ad5246f73682d98292ef7d7b038582700"></a>
@@ -185,6 +202,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>DeviceTree alias for LED3 - indicates the temperature is too high. </p>
 
 </div>
 </div>
@@ -212,6 +231,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Task that updates the LED states based on system status. </p>
+<p>This task runs continuously, checking the system state from the RTDB. It communicates with the user by altering the four LEDs as follows:</p><ul>
+<li>LED0: ON if system is on.</li>
+<li>LED1: ON if temperature difference is within the normal range, i.e. ±2°C.</li>
+<li>LED2: ON if temperature is 2°C (or more) below the setpoint.</li>
+<li>LED3: ON if temperature is 2°C (or more) above the setpoint.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Unused </td></tr>
+    <tr><td class="paramname">b</td><td>Unused </td></tr>
+    <tr><td class="paramname">c</td><td>Unused </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

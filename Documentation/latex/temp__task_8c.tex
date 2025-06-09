@@ -1,5 +1,10 @@
 \doxysection{src/temp\+\_\+task.c File Reference}
 \hypertarget{temp__task_8c}{}\label{temp__task_8c}\index{src/temp\_task.c@{src/temp\_task.c}}
+
+
+Temperature sensing task using a TC74 I2C temperature sensor.  
+
+
 {\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/drivers/i2c.\+h$>$}\newline
 {\ttfamily \#include $<$zephyr/devicetree.\+h$>$}\newline
@@ -9,15 +14,20 @@
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{temp__task_8c_a7d19703980564150c36c41945853212d}{TC74\+\_\+\+NODE}}~DT\+\_\+\+NODELABEL(tc74sensor)
-\item 
+\begin{DoxyCompactList}\small\item\em Device\+Tree node label for the TC74 temperature sensor. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{temp__task_8c_a79aaa89920d05217559f07e3602af050}{TC74\+\_\+\+CMD\+\_\+\+RTR}}~0x00
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Command to read the temperature register from the TC74 sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{temp__task_8c_a2d0bfca3786444f0de03b1470d12387d}{temp\+\_\+task}} (void \texorpdfstring{$\ast$}{*}a, void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}c)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Task reads TC74 sensor to get the temperature and updates RTDB. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Temperature sensing task using a TC74 I2C temperature sensor. 
+
+This task periodically reads the temperature from a TC74 sensor over I2C and updates the shared system state in the RTDB (Real-\/\+Time Database). 
 
 \doxysubsection{Macro Definition Documentation}
 \Hypertarget{temp__task_8c_a79aaa89920d05217559f07e3602af050}\index{temp\_task.c@{temp\_task.c}!TC74\_CMD\_RTR@{TC74\_CMD\_RTR}}
@@ -26,11 +36,19 @@ void \mbox{\hyperlink{temp__task_8c_a2d0bfca3786444f0de03b1470d12387d}{temp\+\_\
 {\footnotesize\ttfamily \label{temp__task_8c_a79aaa89920d05217559f07e3602af050} 
 \#define TC74\+\_\+\+CMD\+\_\+\+RTR~0x00}
 
+
+
+Command to read the temperature register from the TC74 sensor. 
+
 \Hypertarget{temp__task_8c_a7d19703980564150c36c41945853212d}\index{temp\_task.c@{temp\_task.c}!TC74\_NODE@{TC74\_NODE}}
 \index{TC74\_NODE@{TC74\_NODE}!temp\_task.c@{temp\_task.c}}
 \doxysubsubsection{\texorpdfstring{TC74\_NODE}{TC74\_NODE}}
 {\footnotesize\ttfamily \label{temp__task_8c_a7d19703980564150c36c41945853212d} 
 \#define TC74\+\_\+\+NODE~DT\+\_\+\+NODELABEL(tc74sensor)}
+
+
+
+Device\+Tree node label for the TC74 temperature sensor. 
 
 
 
@@ -41,3 +59,20 @@ void \mbox{\hyperlink{temp__task_8c_a2d0bfca3786444f0de03b1470d12387d}{temp\+\_\
 {\footnotesize\ttfamily \label{temp__task_8c_a2d0bfca3786444f0de03b1470d12387d} 
 void temp\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{c}{}\end{DoxyParamCaption})}
 
+
+
+Task reads TC74 sensor to get the temperature and updates RTDB. 
+
+This task connects the I2C interface to the TC74 sensor. When the bus is ready, it reads the current temperature every second.
+
+Prints an error message if the I2C reading fails.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Unused \\
+\hline
+{\em b} & Unused \\
+\hline
+{\em c} & Unused \\
+\hline
+\end{DoxyParams}
