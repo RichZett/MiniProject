@@ -131,7 +131,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Heater control task based on the temperature and system state. </p>
-<p>This task checks the system state and the current temperature, and controls the heater GPIO output accordingly. The heater turns on if the system is in the on-state and the current temperature is more than 2 degrees below the setpoint. </p>
+<p>This task checks the system state and the current temperature, and controls the heater GPIO output accordingly. The heater turns on if the system is in the on-state and the current temperature is more than 2 degrees below the setpoint.</p>
+<p>The execution time of each read cycle is measured using <code>k_uptime_get()</code> and the longest duration observed is tracked (excluding the first run). </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="aef1152d0eaf40f031a3c1b6516b36096" name="aef1152d0eaf40f031a3c1b6516b36096"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef1152d0eaf40f031a3c1b6516b36096">&#9670;&#160;</a></span>OUTPUT_NODE</h2>

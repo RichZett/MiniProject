@@ -31,7 +31,9 @@ void \mbox{\hyperlink{led__task_8c_a8ee90e672bf1005d9c6844f8aa898eae}{led\+\_\+t
 \doxysubsection{Detailed Description}
 LED logic implementation of project. 
 
-This task uses four LEDs to visually represent the status of the system including power state and temperature deviation. 
+This task uses four LEDs to visually represent the status of the system including power state and temperature deviation.
+
+The execution time of each read cycle is measured using {\ttfamily k\+\_\+uptime\+\_\+get()} and the longest duration observed is tracked (excluding the first run). 
 
 \doxysubsection{Macro Definition Documentation}
 \Hypertarget{led__task_8c_a661852bec8ab9683d43ad02881c2f2b5}\index{led\_task.c@{led\_task.c}!LED0\_NODE@{LED0\_NODE}}

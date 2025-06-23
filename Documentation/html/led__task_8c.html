@@ -141,7 +141,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>LED logic implementation of project. </p>
-<p>This task uses four LEDs to visually represent the status of the system including power state and temperature deviation. </p>
+<p>This task uses four LEDs to visually represent the status of the system including power state and temperature deviation.</p>
+<p>The execution time of each read cycle is measured using <code>k_uptime_get()</code> and the longest duration observed is tracked (excluding the first run). </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a661852bec8ab9683d43ad02881c2f2b5" name="a661852bec8ab9683d43ad02881c2f2b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a661852bec8ab9683d43ad02881c2f2b5">&#9670;&#160;</a></span>LED0_NODE</h2>

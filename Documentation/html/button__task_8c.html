@@ -138,7 +138,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Button input control for the system. </p>
-<p>This task reads the button control input of three buttons, and changes the state of the system accordingly. It can toggle ON/OFF the system and increase/decrease the temperature setpoint. </p>
+<p>This task reads the button control input of three buttons, and changes the state of the system accordingly. It can toggle ON/OFF the system and increase/decrease the temperature setpoint.</p>
+<p>The execution time of each read cycle is measured using <code>k_uptime_get()</code> and the longest duration observed is tracked. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="aae95411f1701c6da6aee1d9cfd974513" name="aae95411f1701c6da6aee1d9cfd974513"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae95411f1701c6da6aee1d9cfd974513">&#9670;&#160;</a></span>BUT0_NODE</h2>

@@ -27,7 +27,9 @@ void \mbox{\hyperlink{temp__task_8c_a2d0bfca3786444f0de03b1470d12387d}{temp\+\_\
 \doxysubsection{Detailed Description}
 Temperature sensing task using a TC74 I2C temperature sensor. 
 
-This task periodically reads the temperature from a TC74 sensor over I2C and updates the shared system state in the RTDB (Real-\/\+Time Database). 
+This task periodically reads the temperature from a TC74 sensor over I2C and updates the shared system state in the RTDB (Real-\/\+Time Database).
+
+The execution time of each read cycle is measured using {\ttfamily k\+\_\+uptime\+\_\+get()} and the longest duration observed is tracked (excluding the first run). 
 
 \doxysubsection{Macro Definition Documentation}
 \Hypertarget{temp__task_8c_a79aaa89920d05217559f07e3602af050}\index{temp\_task.c@{temp\_task.c}!TC74\_CMD\_RTR@{TC74\_CMD\_RTR}}

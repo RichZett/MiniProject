@@ -24,7 +24,9 @@ void \mbox{\hyperlink{heater__task_8c_a3deddd7fa58002e777f0bb41f800cdc9}{heater\
 \doxysubsection{Detailed Description}
 Heater control task based on the temperature and system state. 
 
-This task checks the system state and the current temperature, and controls the heater GPIO output accordingly. The heater turns on if the system is in the on-\/state and the current temperature is more than 2 degrees below the setpoint. 
+This task checks the system state and the current temperature, and controls the heater GPIO output accordingly. The heater turns on if the system is in the on-\/state and the current temperature is more than 2 degrees below the setpoint.
+
+The execution time of each read cycle is measured using {\ttfamily k\+\_\+uptime\+\_\+get()} and the longest duration observed is tracked (excluding the first run). 
 
 \doxysubsection{Macro Definition Documentation}
 \Hypertarget{heater__task_8c_aef1152d0eaf40f031a3c1b6516b36096}\index{heater\_task.c@{heater\_task.c}!OUTPUT\_NODE@{OUTPUT\_NODE}}

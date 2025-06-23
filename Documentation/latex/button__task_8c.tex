@@ -29,7 +29,9 @@ void \mbox{\hyperlink{button__task_8c_a28ab112818948e6ca985fd71d7f54533}{button\
 \doxysubsection{Detailed Description}
 Button input control for the system. 
 
-This task reads the button control input of three buttons, and changes the state of the system accordingly. It can toggle ON/\+OFF the system and increase/decrease the temperature setpoint. 
+This task reads the button control input of three buttons, and changes the state of the system accordingly. It can toggle ON/\+OFF the system and increase/decrease the temperature setpoint.
+
+The execution time of each read cycle is measured using {\ttfamily k\+\_\+uptime\+\_\+get()} and the longest duration observed is tracked. 
 
 \doxysubsection{Macro Definition Documentation}
 \Hypertarget{button__task_8c_aae95411f1701c6da6aee1d9cfd974513}\index{button\_task.c@{button\_task.c}!BUT0\_NODE@{BUT0\_NODE}}

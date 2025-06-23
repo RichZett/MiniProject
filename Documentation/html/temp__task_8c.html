@@ -135,7 +135,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Temperature sensing task using a TC74 I2C temperature sensor. </p>
-<p>This task periodically reads the temperature from a TC74 sensor over I2C and updates the shared system state in the RTDB (Real-Time Database). </p>
+<p>This task periodically reads the temperature from a TC74 sensor over I2C and updates the shared system state in the RTDB (Real-Time Database).</p>
+<p>The execution time of each read cycle is measured using <code>k_uptime_get()</code> and the longest duration observed is tracked (excluding the first run). </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a79aaa89920d05217559f07e3602af050" name="a79aaa89920d05217559f07e3602af050"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79aaa89920d05217559f07e3602af050">&#9670;&#160;</a></span>TC74_CMD_RTR</h2>
