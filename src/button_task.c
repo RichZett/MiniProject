@@ -3,7 +3,10 @@
  * @brief Button input control for the system. 
  * 
  * This task reads the button control input of three buttons, and changes the state of the system accordingly.
- * It can toggle ON/OFF the system and increase/decrease the temperature setpoint. 
+ * It can toggle ON/OFF the system and increase/decrease the temperature setpoint.
+ * 
+ * The execution time of each read cycle is measured using `k_uptime_get()` and the
+ * longest duration observed is tracked. 
  */
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
@@ -50,14 +53,16 @@ static const struct gpio_dt_spec but_dec  = GPIO_DT_SPEC_GET(BUT2_NODE, gpios);
  */
 void button_task(void *a, void *b, void *c) {
     
+    int64_t max_duration = 0;
     bool last_on = false, last_inc = false, last_dec = false;
 
     gpio_pin_configure_dt(&but, GPIO_INPUT);
     gpio_pin_configure_dt(&but_inc, GPIO_INPUT);
     gpio_pin_configure_dt(&but_dec, GPIO_INPUT);
 
-
     while (1) {
+        /* Before task starts */
+        int64_t start_time = k_uptime_get(); 
 
         bool on  = gpio_pin_get_dt(&but);
         bool inc = gpio_pin_get_dt(&but_inc);
@@ -66,15 +71,15 @@ void button_task(void *a, void *b, void *c) {
         k_mutex_lock(&rtdb_mutex, K_FOREVER);
         if (on && !last_on) {
             rtdb.system_on = !rtdb.system_on;
-            printk("System toggled %s\n", rtdb.system_on ? "ON" : "OFF");
+            // printk("System toggled %s\n", rtdb.system_on ? "ON" : "OFF");
         }
         if (inc && !last_inc) {
             rtdb.set_temp++;
-            printk("Setpoint increased to %d\n", rtdb.set_temp);
+            // printk("Setpoint increased to %d\n", rtdb.set_temp);
         }
         if (dec && !last_dec) {
-            rtdb.set_temp--;
-            printk("Setpoint decreased to %d\n", rtdb.set_temp);
+            rtdb.set_temp--; 
+            // printk("Setpoint decreased to %d\n", rtdb.set_temp);
         }
         k_mutex_unlock(&rtdb_mutex);
 
@@ -82,6 +87,17 @@ void button_task(void *a, void *b, void *c) {
         last_inc = inc;
         last_dec = dec;
 
+
+        /* After task is finished */
+        int64_t end_time = k_uptime_get();  // End clock
+        int64_t duration = end_time - start_time;
+ 
+        /* Store the maximum */
+        if (duration > max_duration) {
+            max_duration = duration;
+        }
+
+        // printk("Cycle time (Button_task): %lld ms (Max: %lld ms)\n", duration, max_duration);
         k_msleep(200);
     }
 }

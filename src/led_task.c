@@ -4,6 +4,9 @@
  *
  * This task uses four LEDs to visually represent the status of the system
  * including power state and temperature deviation.
+ * 
+ * The execution time of each read cycle is measured using `k_uptime_get()` and the
+ * longest duration observed is tracked (excluding the first run).
  */
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
@@ -65,7 +68,13 @@ void led_task(void *a, void *b, void *c) {
     gpio_pin_configure_dt(&led_low,    GPIO_OUTPUT_INACTIVE);
     gpio_pin_configure_dt(&led_high,   GPIO_OUTPUT_INACTIVE);
 
+    int64_t max_duration = 0;
+    bool first_run = true;
+
     while (1) {
+        /* Before task starts */
+        int64_t start_time = k_uptime_get();  // Start clock
+
         k_mutex_lock(&rtdb_mutex, K_FOREVER);
 
         /* LED0: system ON/OFF indicator */
@@ -84,6 +93,19 @@ void led_task(void *a, void *b, void *c) {
         }
 
         k_mutex_unlock(&rtdb_mutex);
+        
+        /* After task is finished */
+        int64_t end_time = k_uptime_get();  // End clock
+        int64_t duration = end_time - start_time;
+
+        if (!first_run && duration > max_duration) {
+            max_duration = duration;
+        }
+
+        // printk("Cycle time(led_task): %lld ms (Max: %lld ms)\n", duration, max_duration);
+
+        first_run = false; 
+
         k_msleep(200);
     }
 }

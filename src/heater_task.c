@@ -6,6 +6,9 @@
  * the heater GPIO output accordingly. The heater turns on if the system is in 
  * the on-state and the current temperature is more than 2 degrees below the 
  * setpoint.
+ * 
+ * The execution time of each read cycle is measured using `k_uptime_get()` and the
+ * longest duration observed is tracked (excluding the first run).
  */
 
 #include <zephyr/kernel.h>
@@ -43,8 +46,13 @@ void heater_task(void *a, void *b, void *c) {
     gpio_pin_configure_dt(&heater_pin, GPIO_OUTPUT_INACTIVE);
 
     bool last_state = false;  
+    int64_t max_duration = 0;
+    bool first_run = true;
 
     while (1) {
+        /* Before task starts */
+        int64_t start_time = k_uptime_get();  // Start clock
+
         k_mutex_lock(&rtdb_mutex, K_FOREVER);
 
         bool heater_on = false;
@@ -63,6 +71,18 @@ void heater_task(void *a, void *b, void *c) {
 
         gpio_pin_set_dt(&heater_pin, heater_on ? 1 : 0);
         k_mutex_unlock(&rtdb_mutex);
+
+        /* After task is finished */
+        int64_t end_time = k_uptime_get();  // End clock
+        int64_t duration = end_time - start_time;
+
+        if (!first_run && duration > max_duration) {
+            max_duration = duration;
+        }
+
+        // printk("Cycle time(heater_task): %lld ms (Max: %lld ms)\n", duration, max_duration);
+
+        first_run = false; 
 
         k_msleep(200);
     }

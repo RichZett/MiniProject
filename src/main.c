@@ -113,8 +113,8 @@ int main(void)
 	/* Create the threads */
 	k_thread_create(&button_thread_data, button_stack, 512, button_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
 	k_thread_create(&led_thread_data, led_stack, 512, led_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
-	k_thread_create(&temp_thread_data, temp_stack, 512, temp_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
-	k_thread_create(&heater_thread_data, heater_stack, 512, heater_task, NULL, NULL, NULL, 5, 0, K_NO_WAIT);
+	k_thread_create(&temp_thread_data, temp_stack, 512, temp_task, NULL, NULL, NULL, 1, 0, K_NO_WAIT);
+	k_thread_create(&heater_thread_data, heater_stack, 512, heater_task, NULL, NULL, NULL, 3, 0, K_NO_WAIT);
 
 	while(1) {
 		k_msleep(100);  /* idle loop */  

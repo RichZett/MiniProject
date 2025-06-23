@@ -7,7 +7,7 @@
         label = "TC74";
     };
 };
-
+ 
 / {
     leds {
         compatible = "gpio-leds";
